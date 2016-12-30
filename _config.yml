@@ -3,7 +3,7 @@ description:
 author: RoyalAzalea
 github: https://github.com/RoyalAzalea
 about: Hello, this is my personal blog
-disqus_shortname: stackproblems
+disqus_shortname:
 google_analytics: UA-XXXXXXXX-Y
 
 enableTags: true
@@ -27,9 +27,10 @@ collections:
 #    - icon: fa-stack-exchange
 #      link: "#"
 
-share:
-  twitter_username: agusmakmun6
-  fb_appid: 1749788565247320
+#
+#share:
+#  twitter_username: agusmakmun6
+#  fb_appid: 1749788565247320
 
 urls:
     - text: About Me
@@ -37,7 +38,7 @@ urls:
     - text: Projects
       url: /projects/
     - text: Github
-      url: https://github.com/agusmakmun
+      url: https://github.com/RoyalAzalea
     - text: XML Feed
       url: /feed.xml
 
