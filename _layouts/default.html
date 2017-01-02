@@ -102,7 +102,7 @@
                 <h1 class="author-name">{{ site.author }}</h1>
                 {% if site.about %}
                 <div id="about">
-                    <h3>{{ site.about }}</h3>
+                    <h5>{{ site.about }}</h5>
                 </div>
                 {% endif %}
 
@@ -121,9 +121,9 @@
                 <hr />
 
                 <h2><strong>Navigation</strong></h2><br /><!-- config.yml 의 url 설정으로 Navigation 관리 가능 -->
-                    &nbsp;&raquo; <a href="/">Home</a> <br />
+                    &nbsp;&raquo; <a href="/"><h5>Home</h5></a> <br />
                 {% for i in site.urls %}
-                    &nbsp;&raquo; <a class="about" href="{{ i.url }}"><h3>{{ i.text }}</h3></a><br />
+                    &nbsp;&raquo; <a class="about" href="{{ i.url }}"><h5>{{ i.text }}</h5></a><br />
                 {% endfor %}
               </div><!-- end /.fixed-condition -->
             </div>
