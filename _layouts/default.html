@@ -123,7 +123,7 @@
                 <h2><strong>Navigation</strong></h2><br /><!-- config.yml 의 url 설정으로 Navigation 관리 가능 -->
                     &nbsp;&raquo; <a href="/"><h5>Home</h5></a> <br />
                 {% for i in site.urls %}
-                    &nbsp;&raquo; <a class="about" href="{{ i.url }}"><h5>{{ i.text }}</h5></a><br />
+                    <a class="about" href="{{ i.url }}"><h5>&raquo;{{ i.text }}</h5></a><br />
                 {% endfor %}
               </div><!-- end /.fixed-condition -->
             </div>
