@@ -35,10 +35,10 @@ collections:
 urls:
     - text: About Me
       url: /about/
+    - text: Category
+      url: /category/
     - text: Projects
       url: /projects/
-    - text: Category
-      url: /category/jekyll
     - text: Github
       url: https://github.com/RoyalAzalea
     - text: XML Feed
