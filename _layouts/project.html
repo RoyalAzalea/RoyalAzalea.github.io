@@ -38,16 +38,16 @@ layout: default
     			{% if p_url %} </a> {% endif %}
     			<div class="project-content">
     				<div class="tag-holder">
-    				{% if i.tags %} 
+    				{% if i.tags %}
     					{% for j in i.tags %}
     					<span class="tags tag-filter" data-tag="{{ j | downcase }}"><a href="#{{ j }}">{{ j }}</a></span>
     					{% endfor %}
     				{% endif %}
     				</div>
-    				
+
     			</div>
-    			<div class="project-footer"> 
-    				{% if i.url %} 
+    			<div class="project-footer">
+    				{% if i.url %}
     				<a href="{{ i.url }}" class="project-link" target="_blank"><i class="fa fa-globe"></i> View</a>
     				{% endif %}
     				<span class="project-timeline">{{ i.date }}</span>
