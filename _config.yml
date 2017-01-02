@@ -4,7 +4,7 @@ author: RoyalAzalea
 github: https://github.com/RoyalAzalea
 about: Hello, this is my personal blog
 disqus_shortname:
-google_analytics: UA-XXXXXXXX-Y
+google_analytics:
 
 enableTags: true
 tagarray: []
