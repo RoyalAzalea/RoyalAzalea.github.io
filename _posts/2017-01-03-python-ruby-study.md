@@ -22,7 +22,7 @@ categories: [python, ruby]
 **Python** cmd 실행 - python 입력 후 코드 입력 or "python + 파일경로/파일이름.py"  
 **Ruby** cmd 실행 - irb 입력 후 코드 입력 or "ruby + 파일경로/파일이름.rb"
 
-### 4. 설치하는곳
+### 4. 다운받는곳
 
 **Python** <https://www.python.org/downloads/windows/>  
 **Ruby** <http://rubyinstaller.org/>
