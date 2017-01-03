@@ -21,6 +21,8 @@ cmd 실행 - python 입력 후 코드 입력 or "python + 파일경로/파일이
 
 [파이썬 설치 경로](https://www.python.org/downloads/windows/)
 
+
+
 ## Ruby
 
 
