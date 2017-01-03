@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "python ruby study _ "
-date: "`r format(Sys.time(), '%d %B, %Y')`"
+title: "python ruby study _ 설치 & 실행"
+date: 2017-01-03
 categories: [python, ruby]
 ---
