@@ -10,7 +10,7 @@ categories: [python, ruby]
 ### 1. 설치
 
 **Python** Download button - Download for windows - Python 3.X.X down  
-**Ruby** Download button - Ruby 2.X.X down (32bit or 64bit) - 설치시 추가선택 3개 모두 선택하기
+**Ruby** Download button - Ruby 2.X.X down (32bit or 64bit) - 설치시 추가선택 3개 모두 선택
 
 ### 2. PATH 설정하기
 
