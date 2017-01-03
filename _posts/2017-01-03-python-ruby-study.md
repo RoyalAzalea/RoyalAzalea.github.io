@@ -7,11 +7,25 @@ categories: [python, ruby]
 
 설치환경 Window 10
 
-## Python
+## 1. 설치
+
+### Python
+Download button - Download for windows - Python 3.X.X down
+
+### Ruby
+
+## 2. PATH 설정하기
+
+###Python
+###Ruby
+
+## 3. 실행
+###Python
+###Ruby
+
 
 
 ### 1. 설치
-Download button - Download for windows - Python 3.X.X down
 
 ### 2. PATH 설정하기
 설치시 PATH 추가 or 직접 환경변수에 python폴더 추가
