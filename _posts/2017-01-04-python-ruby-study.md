@@ -11,12 +11,12 @@ python에서 ""과 ''는 거의 같은 의미이다. ruby에서는 살짝 다르
 
 **python**
 
-'''python
+```python
 print('Hello')
 print("Hello")
 print("Hello 'world'")
 print('Hello "world"')
-'''
+```
 
 **ruby**
 
@@ -26,3 +26,13 @@ puts("Hello")
 puts("Hello 'world'")
 puts('Hello "world"')
 {% endhighlight %}
+
+**result**
+---
+Hello
+Hello
+Hello 'world'
+Hello "world"
+---
+
+다음은 문자열
