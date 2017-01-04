@@ -30,6 +30,7 @@ puts('Hello "world"')
 {% endhighlight %}
 
 **result**
+
 ```
 Hello
 Hello
@@ -45,7 +46,7 @@ Hello "world"
 ```python
 # your code goes here
 print("Hello" + 'world')
-print('Hello' + "wordl")
+print('Hello' + "world")
 print("Hello" + "world")
 print('Hello' + 'world')
 
@@ -60,7 +61,7 @@ print('asome'[2])
 
 ```
 Helloworld
-Hellowordl
+Helloworld
 Helloworld
 Helloworld
 HelloHelloHelloHelloHelloHelloHelloHelloHelloHello
@@ -91,4 +92,102 @@ H H HH H HH H HH H H
 e
 o
 a
+```
+
+python과 ruby에 문자열 관련된 여러기능이 있다. 둘은 비슷하기도 하지만 다른점도 많으니
+각 문서를 참고하는게 좋다.
+
+**python**
+
+```python
+# your code goes here
+print('hello world'.capitalize())
+print('asome test'.upper())
+print("hello world".__len__())
+print(len("hello world"))
+print("Hello world".replace('world', 'hell'))
+```
+
+**result**
+
+```
+Hello world
+ASOME TEST
+11
+11
+Hello hell
+
+```
+
+**ruby**
+
+{% highlight ruby %}
+# your code goes here
+puts('hello world'.capitalize())
+puts('hello world'.upcase())
+puts('hello world'.length())
+puts('hello world'.sub('world', 'hell'))
+{% endhighlight %}
+
+**result**
+
+```
+Hello world
+HELLO WORLD
+11
+hello hell
+```
+
+이제 python과 ruby의 특수문자를 사용하는 법을 보겠다. 특수문자를 사용할때는
+역슬레쉬 *\* 를 이용해서 사용하면된다.
+
+**python**
+
+```python
+# your code goes here
+print("egoing's \"tutorial\"")  # "출력
+print("\\")                     # \출력
+print("Hello\nworld")           #  개행
+print("Hello\t\tworld")         # 탭문자 2번 삽입
+print("\a")                     # 알람소리
+print('hello\nworld')           # ""와 동일
+```
+
+**result**
+
+```
+egoing's "tutorial"
+\
+Hello
+world
+Hello		world
+
+hello
+world
+
+```
+
+**ruby**
+
+{% highlight ruby %}
+# your code goes here
+puts("egoing's \"tutorial\"")
+puts("\\")
+puts("Hello\nworld")
+puts("Hello\t\tworld")
+puts("\a")
+# ruby에서 ''는 문자열을 그대로 출력한다.
+puts('Hello\nworld')
+{% endhighlight %}
+
+**result**
+
+```
+egoing's "tutorial"
+\
+Hello
+world
+Hello		world
+
+Hello\nworld
 ```
