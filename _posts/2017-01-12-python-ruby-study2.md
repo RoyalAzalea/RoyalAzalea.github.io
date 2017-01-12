@@ -157,8 +157,7 @@ true
 
 ```python
 # your code goes here
-in_str = input("plz write your name : ")
-print("\n")
+in_str = input("plz write your name : \n")
 passenger1 = "RoyalAzalea"
 passenger2 = "Mike"
 if in_str == passenger1 or in_str == passenger2:
@@ -192,7 +191,6 @@ RoyalAzalea
 
 ```
 plz write your name :
-
 Welcome!
 ```
 
@@ -213,10 +211,8 @@ Sorry, we can't find your reservation
 
 ```python
 # your code goes here
-in_str = input("plz write your name : ")
-print("\n")
-in_age = input("plz write your age : ")
-print("\n")
+in_str = input("plz write your name : \n")
+in_age = input("plz write your age : \n")
 passenger1 = "RoyalAzalea"
 passenger2 = "Mike"
 age_passenger1 = "25"
@@ -261,9 +257,7 @@ RoyalAzalea
 
 ```
 plz write your name :
-
 plz write your age :
-
 Welcome!
 ```
 

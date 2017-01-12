@@ -23,7 +23,7 @@ print("your name (upper) : "+in_str.upper())
 
 {% highlight ruby %}
 # your code goes here
-puts("plz write your name \n")
+puts("plz write your name: ")
 in_str = gets.chomp()
 puts("your name : " + in_str)
 puts("your name (upper) : " + in_str.upcase())
@@ -38,7 +38,7 @@ RoyalAzalea
 **result**
 
 ```
-plz write your name
+plz write your name:
 your name : RoyalAzalea
 your name (upper) : ROYALAZALEA
 ```
@@ -52,11 +52,10 @@ your name (upper) : ROYALAZALEA
 
 ```python
 # your code goes here
-in_str = input("plz write number ( 1 or 2 or some number ) : ")
+in_str = input("plz write number ( 1 or 2 or some number ) : \n")
 hint1 = "1"
 hint2 = "2"
 cake = "4"
-print("\n")
 if hint1 == in_str:
 	print("wow! you are great, but you can't get it! try try again!")
 elif hint2 == in_str:
@@ -68,6 +67,7 @@ else:
 ```
 
 **ruby**
+
 {% highlight ruby %}
 # your code goes here
 puts("plz write number ( 1 or 2 or some number ) : ")
@@ -75,7 +75,6 @@ in_str = gets.chomp()
 hint1 = "1"
 hint2 = "2"
 cake = "4"
-puts("\n")
 if hint1 == in_str
 	puts("wow! you are great, but you can't get it! try try again!")
 elsif hint2 == in_str
@@ -97,7 +96,6 @@ end
 
 ```
 plz write number ( 1 or 2 or some number ) :
-
 wow! you are great, but you can't get it! try try again!
 ```
 
@@ -111,7 +109,6 @@ wow! you are great, but you can't get it! try try again!
 
 ```
 plz write number ( 1 or 2 or some number ) :
-
 almost... you reach this goal... try try hard!!
 ```
 
@@ -125,11 +122,11 @@ almost... you reach this goal... try try hard!!
 
 ```
 plz write number ( 1 or 2 or some number ) :
-
 congratulation!!! you got it!! enjoy your victory! eat cake :D
 ```
 
 **input**
+
 ```
 1,2,4를 제외한 다른 숫자 혹은 비정상정인 입력(ex. 문자열)
 ```
@@ -138,6 +135,5 @@ congratulation!!! you got it!! enjoy your victory! eat cake :D
 
 ```
 plz write number ( 1 or 2 or some number ) :
-
 sorry, you need to more try
 ```

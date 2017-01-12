@@ -34,3 +34,17 @@ test
 test
 
 ```
+
+
+python과 ruby의 문법을 참고할 수 있는 Cheat Sheet들이 있다. 필요할 때 참고하자!
+
+
+**python**
+
+* <https://perso.limsi.fr/pointal/_media/python:cours:mementopython3-english.pdf>
+* <http://overapi.com/python/>
+
+**ruby**
+
+* <http://www.cheat-sheets.org/saved-copy/RubyCheat.pdf>
+* <http://overapi.com/ruby/>
