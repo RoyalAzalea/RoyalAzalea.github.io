@@ -13,7 +13,7 @@ python은 :를 써야되고 ruby는 do-end를 써서 실행영역을 구분한�
 ```python
 # your code goes here
 while False:
-	print("True parts")
+	print("false parts")
 print("After while")
 ```
 
