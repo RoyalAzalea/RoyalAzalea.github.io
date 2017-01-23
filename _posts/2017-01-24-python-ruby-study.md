@@ -64,6 +64,7 @@ print(a())
 ```
 
 **result**
+
 ```
 B
 ```
@@ -71,7 +72,7 @@ B
 
 이제 python에서 모듈을 직접 만들어 사용하는 방법을 보겠다. 각기 다른 파일에 모듈들을
 정의하고 사용할 모듈을 import하면 된다. one.py와 two.py를 만들고 main1.py에서 동시에
-두 모듈을 import 하고있다. 이제 main에서 one.a()로 one.py의 함수를 실행 할 수 있다.
+두 모듈을 import 하고있다. 이제 main에서 one.a()로 one.py의 a 함수를 실행 할 수 있다.
 
 **one.py**
 
