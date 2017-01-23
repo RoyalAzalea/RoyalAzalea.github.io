@@ -2,7 +2,7 @@
 layout: post
 title: "Python Ruby Study _ 모듈"
 date: 2017-01-24
-categories: [ruby]
+categories: [python, ruby]
 ---
 
 모듈은 필요한 기능들을 모아둔 부품상자처럼 생각해도 된다. python과 ruby에서 수학관련
