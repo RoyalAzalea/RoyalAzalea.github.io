@@ -5,7 +5,7 @@ date: 2017-01-10
 categories: [python, ruby]
 ---
 
-python과 ruby의 변수에 대해 보면 일반적인 다른 언어와 동일하다. 다만 세미콜론 ; 을
+python과 ruby의 변수에 대해 보면 일반적인 다른 언어와 동일하다. 다만 세미콜론 `;` 을
 쓰지 않는다.
 
 **python**
@@ -41,8 +41,8 @@ study_Python & Ruby
 
 
 python과 ruby의 비교문법은 다른 언어와 동일하다. 비교문법에 대한 문서를 찾아보면 된다.
-python의 경우는 블리안에 True, False가 쓰이고 ruby의 경우는 true, false가 쓰인다.
-대소문자를 주의해서 써야함 대충 쓰다간 stderr 볼 수 있음!
+python의 경우는 블리안에 `True`, `False`가 쓰이고 ruby의 경우는 `true`, `false`가 쓰인다.
+대소문자를 주의해서 써야함 대충 쓰다간 `stderr` 볼 수 있음!
 
 **python**
 

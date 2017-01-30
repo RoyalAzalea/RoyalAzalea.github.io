@@ -5,10 +5,10 @@ date: 2017-01-12
 categories: [python, ruby]
 ---
 
-python의 경우 사용자의 입력을 받기위해 input을 사용하고 ruby의 경우는 gets.chomp()를
-사용한다. python은 경우는 input을 쓰면서 사용자에게 출력해줄 문자열도 입력이 가능하다.
-ruby는 따로 puts를 이용해서 출력을 해줘야 함. 이제 간략한 예제를 보겠다. 참고로 문자의
-대문자화를 위해 python은 upper를 ruby는 upcase를 사용한다!
+python의 경우 사용자의 입력을 받기위해 `input`을 사용하고 ruby의 경우는 `gets.chomp()`를
+사용한다. python은 경우는 `input`을 쓰면서 사용자에게 출력해줄 문자열도 입력이 가능하다.
+ruby는 따로 `puts`를 이용해서 출력을 해줘야 함. 이제 간략한 예제를 보겠다. 참고로 문자의
+대문자화를 위해 python은 `upper`를 ruby는 `upcase`를 사용한다!
 
 **python**
 
