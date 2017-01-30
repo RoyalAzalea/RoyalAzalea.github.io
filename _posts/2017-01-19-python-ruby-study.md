@@ -88,7 +88,7 @@ python과 ruby 둘 다 각 홈페이지에서 사용설명서를 볼 수 있다.
 **ruby**
 
 * core API는 기본적인 ruby 명령어와 사용법
-* standard library API는 import해서 사용할 수 있는 정보
+* standard library API는 `import`해서 사용할 수 있는 정보
 
 
 이제 문서를 사용해서 python의 list와 ruby의 array의 여러기술을 사용해보겠다.
