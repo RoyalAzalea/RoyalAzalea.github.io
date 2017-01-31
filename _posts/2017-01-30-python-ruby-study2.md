@@ -5,8 +5,8 @@ date: 2017-01-30
 categories: [python, ruby]
 ---
 
-python과 ruby에서 객체를 직접 만들어 보겠다. python에서는 class이름 뒤에 `(object)`를
-써주고 :를 사용한다. ruby에서는 `class-end`를 사용한다.
+python과 ruby에서 객체를 직접 만들어 보겠다. python에서는 `class`이름 뒤에 `(object)`를
+써주고 `:`를 사용한다. ruby에서는 `class-end`를 사용한다.
 
 **python**
 
@@ -26,8 +26,8 @@ end
 를 매개변수로 받거나 필요한 작업을 실행한다. 이 생성자를 만들어 보겠다. python에서는
 `__init__`을 선언한다. 이때, 생성자의 매개변수 첫번째 인자는 생성자가 속해있는
 인스턴스를 받는다. ruby에서는 `initialize`를 선언한다. 그리고 매개변수로 받아온 값들은
-지역적이므로 인스턴스 변수에 저장을 해야지 다른 method에서 사용할 수 있다. 인스턴스 변
-수를 만드는 법은 python의 경우 아래 `self`처럼 method의 첫번째 인자를 이용하면 된다.
+지역적이므로 인스턴스 변수에 저장을 해야지 다른 method에서 사용할 수 있다. 인스턴스 변수를
+만드는 법은 python의 경우 아래 `self`처럼 method의 첫번째 인자를 이용하면 된다.
 ruby의 경우는 `@`를 변수 앞에 붙여서 인스턴스 변수를 이용한다.
 
 **python**
