@@ -35,7 +35,7 @@ puts arr3.join '\*'
 {% endhighlight %}
 
 
-위 예제는 ruby를 통해 `String Class`와 `Array Class`에 대해 간략히 알아본다. 객체를 생성
+위 예제는 ruby를 통해 `String_Class`와 `Array_Class`에 대해 간략히 알아본다. 객체를 생성
 하는 방법이 조금씩 다를 뿐 `name1`과 `name2`는 둘 다 문자열 객체를 생성한다. 마찬가지로
 `arr1, arr2, arr3`도 배열 객체를 생성한다. 배열 객체는 `push`를 통해 원소를 추가할 수 있고
 `join`을 통해 `join`다음에 나오는 문자열로 원소들을 연결한다. ruby에서 제공하는 객체에 대한

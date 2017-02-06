@@ -145,7 +145,7 @@ B
 분리되어 쓰이기도 하고 분리되지 않은채 쓰이기도 한다. 아래의 `one.rb`는 한 파일 내에서
 모듈을 생성하고 사용하는 예제이다. ruby에서 모듈의 이름은 반드시 대문자로 시작해야된다.
 그리고 모듈의 영역은 `module-end`로 구분할 수 있다. 그리고 `module_function()`을 모듈안에
-써야지 `"modulename.methodname"`으로 사용할 수 있다.
+써야지 `"module_name.method_name"`으로 사용할 수 있다.
 
 **one.rb**
 
