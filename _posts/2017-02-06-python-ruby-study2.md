@@ -9,11 +9,12 @@ categories: [python, ruby]
 하겠다. 이 예제는 ruby에서 제공하는 `date`라는 클래스를 가져와서 사용한다. `Date`클래스를
 이용하여 `yyyy-mm-dd`를 담을 수 있다. 이렇게 각각의 `yyyy-mm-dd`이 담긴 `d1`과 `d2`의
 `year` method를 사용하면 각각의 년도가 출력된다. `year` method가 하는 일은 같지만
-각각의 인스턴스의 Data에 따라 다른 값을 출력한다. `year`는 인스턴스에 소속된거로 볼 수
-있다. 그리고 `today` method는 현재의 `yyyy-mm-dd`를 출력한다. `year` method와 달리
-`today` method는 인스턴스에 소속되기 애매하다. 이처럼 인스턴스의 내부적인 data와 연관성을
-가지고 동작하는 경우는 인스턴스에 소속시키면 되고, 인스턴스에 소속되기 애매한 경우 클래스
-멤버로 만들어 클래스에 소속시키면 된다.
+각각의 인스턴스의 Data에 따라 다른 값을 출력한다. 따라서 `year`는 인스턴스에 소속된거로
+볼 수 있다. 그리고 `today` method는 현재의 `yyyy-mm-dd`를 출력한다. `year` method와
+달리 `today` method는 인스턴스에 소속되기 애매하다. 이런 경우 클래스에 소속시킨다.
+정리해보면 인스턴스의 내부적인 data와 연관성을 가지고 동작하는 경우는 인스턴스에
+소속시키면 되고, 인스턴스에 소속되기 애매한 경우 클래스 멤버로 만들어 클래스에 소속시키면
+된다.
 
 **ruby**
 
@@ -122,7 +123,7 @@ class Cs:
 	@classmethod
 	def getCount2(cls):
 		print(cls)
-		return cls.count
+		return cls.count #same Cs.count because 'cls' receive 'Cs'
 	def getC(self):
 		return Cs.count
 
@@ -154,11 +155,12 @@ print(i3.getC())
 # your code goes here
 class Cs
 	@@count = 0
-	def initialize()
-		@@cc = 0c
+	def initialize()		
+		@@cc = 0
 		@@count = @@count + 1
 	end
 	def Cs.getCount()
+		@@cc = 1
 		return @@count
 	end
 	def getC()
@@ -180,15 +182,15 @@ i3.getC
 
 ```
 4
-"4, 0"
-"4, 0"
+"4, 1"
+"4, 1"
 ```
 
 
 아래는 상속과 클래스 멤버를 활용한 예제이다. 이전에 만든 `Cal_Class`를 활용해
 `CalMultiply_Class`와 `CalDivide_Class`를 만든다. 그리고 method들의 실행결과를 간략히
 기록한다. 참고로 클래스 인스턴스 뿐아니라 그 클래스를 상속받은 인스턴스들도 같이 클래스
-멤버를 공유한다. 참고로 문자열 사이에 변수의 값을 넣어서 출력하는 방법으로 python은
+멤버를 공유한다. 그리고 문자열 사이에 변수의 값을 넣어서 출력하는 방법으로 python은
 숫자의 경우 문자열 안에 `%d`를 사용하여 `"%d" % (variable_name) ` 이런 구조를
 사용한다. ruby는 `#{variable_name}` 이런 구조를 사용한다.
 
