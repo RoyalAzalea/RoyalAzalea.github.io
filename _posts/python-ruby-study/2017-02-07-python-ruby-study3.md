@@ -132,7 +132,7 @@ c.m2_m()
 
 
 
-This is some text $$\lambda_i=\lambda_j$$
+This is some text *$$\lambda_i=\lambda_j$$*
 
 dgdgg $$ax^2 + bx + c = 0$$
 
