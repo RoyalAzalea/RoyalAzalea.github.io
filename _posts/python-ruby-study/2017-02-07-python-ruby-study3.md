@@ -135,3 +135,5 @@ c.m2_m()
 This is some text $$\lambda_i=\lambda_j$$
 
 dgdgg $$ax^2 + bx + c = 0$$
+
+to show $\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}$ dd
