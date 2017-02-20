@@ -133,3 +133,5 @@ c.m2_m()
 
 
 This is some text $$\lambda_i=\lambda_j$$
+
+dgadgsdg $ax^2 + bx + c = 0$
