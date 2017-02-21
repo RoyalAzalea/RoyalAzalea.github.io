@@ -11,3 +11,6 @@ categories: [kalman_filter, matlab]
 $$
 \bar{x_k} = { x_1 + x_2 + \cdots + x_k \over k } \label{1.1}\tag{1.1}
 $$
+
+위 식은 데이터를 모두 모아서 한꺼번에 계산하는 식으로 배치식(`batch expression`)이다.
+식 $1.1$ $\label{1.1}$
