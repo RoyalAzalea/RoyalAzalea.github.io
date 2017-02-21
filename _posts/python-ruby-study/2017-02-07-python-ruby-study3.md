@@ -55,7 +55,7 @@ C1 m
 
 **python**
 
-```python3
+```py3
 # your code goes here
 class C1():
 	def c1_m(self):
@@ -128,16 +128,6 @@ c.m2_m()
 ```
 "m1_m"
 "m2_m"
-```
-
-
-```matlab
-function [ avg ] = MovAvgFilter(x)
-%
-%
-
-avg = 10;
-
 ```
 
 $$
