@@ -9,5 +9,5 @@ categories: [kalman_filter, matlab]
 평균은 다음과 같이 계산한다.
 
 $$
-
+\bar{x_k} = { x_1 + x_2 + \cdots + x_k \over k } \label{1.1}\tag{1.1}
 $$
