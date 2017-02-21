@@ -55,7 +55,7 @@ C1 m
 
 **python**
 
-```python
+```python3
 # your code goes here
 class C1():
 	def c1_m(self):
@@ -130,6 +130,16 @@ c.m2_m()
 "m2_m"
 ```
 
+
+```matlab
+function [ avg ] = MovAvgFilter(x)
+%
+%
+
+avg = 10;
+
+```
+
 $$
 \begin{align*}
   & \phi(x,y) = \phi \left(\sum_{i=1}^n x_ie_i, \sum_{j=1}^n y_je_j \right)
@@ -146,3 +156,7 @@ $$
     \end{array} \right)
 \end{align*}
 $$
+
+$$ 5 + 5 $$
+
+\$$ 5 + % \$$
