@@ -73,11 +73,11 @@ $$
 이제 $\alpha$의 정의와 위 식을 식 $\ref{1.3}$에 대입하여 정리하면 다음과 같은 재귀식을
 얻을 수 있다.
 
-$$
+$$\begin{align}
 \overline{x_k} &=& {k-1 \over k}\overline{x_{k-1}} + {1 \over k}x_k \\\\
                &=& \alpha\overline{x_{k-1}} + (1-\alpha)x_k
                \label(1.4)\tag(1.4)
-$$
+\end{align}$$
 
 식 $\ref{1.4}$의 이름은 **평균 필터**(`Averaging filter`)이다.  
 
