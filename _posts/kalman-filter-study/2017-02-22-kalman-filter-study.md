@@ -188,3 +188,27 @@ end
 
 위 `GetSonar.m`는 초음파 거리계의 측정값을 읽어오는 함수이다. 측정 데이터는 미리 준비된
 `SonarAlt.mat` 파일에서 가져온다. 아래는 실행 결과이다.  
+
+![MovAvgFilter_1](https://raw.githubusercontent.com/RoyalAzalea/RoyalAzalea.github.io/master/static/img/_posts/kalman-filter-study/MovAvgFilter_1.PNG)
+
+위 그래프을 보면 이동평균 처리된 고도에 약간씩 시간지연이 있다. 실제 고도의 변화가 바로
+반영되지 않고 조금씩 늦게 나타나고 있다. 만약 시간지연이 너무 크다면 데이터 개수를
+줄여야한다. 대신 측정 잡음을 제거하는 성능은 더 떨어지게 된다. 반대로 데이터 개수를
+늘리면 잡음 제거 성능은 개선되지만 시간지연은 커진다. 아래는 데이터 개수를 변화시킨
+실행 결과이다. 아래는 데이터 개수를 변경시킨 실행 결과이다.  
+
+![MovAvgFilter_2](https://raw.githubusercontent.com/RoyalAzalea/RoyalAzalea.github.io/master/static/img/_posts/kalman-filter-study/MovAvgFilter_2.PNG)
+
+![MovAvgFilter_3](https://raw.githubusercontent.com/RoyalAzalea/RoyalAzalea.github.io/master/static/img/_posts/kalman-filter-study/MovAvgFilter_3.PNG)
+
+위 그래프들을 보면 데이터 개수에 따른 잡음 제거와 시간지연의 변화를 볼 수 있다. 데이터
+개수인 $n$은 잡음 제거와 변화 민감성이라는 상충된 요구를 절충하는 역할을 한다. 만약
+측정하는 물리량이 빠르게 변한다면 이동평균의 데이터 개수를 줄여 변화를 빨리 쫓아가야 한다.
+움직임이 느리다면 이동평균의 데이터 개수를 늘려 잡음 제거 특성을 높이는게 좋다.  
+
+###정리
+
+이동평균 필터는 측정 데이터의 잡음을 제거하는데 유용하다. **평균 내는 데이터 개수가
+많으면 잡음 제거 성능은 좋지만 측정 신호의 변화가 제 때 반영되지 않고 시간지연이 생긴다.
+반대로 데이터 개수가 적으면 측정 신호의 변화는 잘 따라가지만 잡음이 잘 제거되지 않는다.**
+따라서 측정하려는 신호의 특성을 잘 파악해 이동평균의 데이터 개수를 선정해야 한다.

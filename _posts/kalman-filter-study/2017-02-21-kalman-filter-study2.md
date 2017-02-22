@@ -167,7 +167,7 @@ end
 
 ![AvgFilter_1](https://raw.githubusercontent.com/RoyalAzalea/RoyalAzalea.github.io/master/static/img/_posts/kalman-filter-study/AvgFilter_1.PNG)
 
-![gd]({{site.url}}/master/static/img/_posts/kalman-filter-study/AvgFilter_1.PNG)
+##정리##
 
 정리하면 재귀식인 평균 필터는 직전 평균값과 데이터 개수만 알면 쉽게 평균을 구할 수 있다.
 특히 데이터가 순차적으로 입력되는 경우에는 데이터를 저장할 필요가 없고 계산 효율도 높다.
