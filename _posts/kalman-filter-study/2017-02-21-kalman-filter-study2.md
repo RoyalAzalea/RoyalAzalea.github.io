@@ -40,10 +40,10 @@ $$
 
 여기서 우변의 $x_k$를 따로 분리해서 두개의 항으로 만들면 다음의 식이 된다.
 
-$$
-{k \over k-1}\overline{x_k} &=& { x_1 + x_2 + \cdots + x_k \over k-1 } \\\
+$$\begin{matrix}
+{k \over k-1}\overline{x_k} &=& { x_1 + x_2 + \cdots + x_k \over k-1 } \\\\
                             &=& { x_1 + x_2 + \cdots + x_{k-1} \over k-1 } + { x_k \over k-1 }
-$$
+\end{matrix}$$
 
 우변의 첫 번째 항은 식 $\ref{1.2}$의 $\overline{x_{k-1}}$의 정의와 같다. 따라서
 위의 식은 다음과 같이 쓸 수 있다.
@@ -74,7 +74,7 @@ $$
 얻을 수 있다.
 
 $$
-\overline{x_k} &=& {k-1 \over k}\overline{x_{k-1}} + {1 \over k}x_k
+\overline{x_k} &=& {k-1 \over k}\overline{x_{k-1}} + {1 \over k}x_k \\\\
                &=& \alpha\overline{x_{k-1}} + (1-\alpha)x_k
                \label(1.4)\tag(1.4)
 $$
