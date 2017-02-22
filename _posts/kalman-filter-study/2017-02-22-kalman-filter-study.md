@@ -38,12 +38,12 @@ $$
 위 두 식을 비교해보면 $\overline{x_k}$는 $\overline{x_{k-1}}$에서 가장 오래된
 $x_{k-n}$을 뺀 대신 $x_k$를 새로 추가해서 구한 평균이라는 것을 알 수 있다.  
 
-이제 식 $ref{2.1}$에서 식 $ref{2.2}$를 빼서 정리해보자.  
+이제 식 $\ref{2.1}$에서 식 $\ref{2.2}$를 빼서 정리해보자.  
 
 $$
 \begin{align}
 \overline{x_k} - \overline{x_{k-1}} &= { x_{k-n+1} + x_{k-n+2} + \cdots + x_k \over n} - { x_{k-n} + x_{k-n+1} + \cdots + x_{k-1} \over n} \\\\
-&= {x_k - x_{k-n} \over n}
+                                    &= {x_k - x_{k-n} \over n}
 \end{align}
 $$
 
