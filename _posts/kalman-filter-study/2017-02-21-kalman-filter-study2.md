@@ -165,7 +165,7 @@ end
 섞여있다. 잡음의 평균은 $0$ 이고 표준편차가 $4$라고 가정한다. 잡음은 MATLAB의 내장함수
 `randn`로 만들었다. 아래는 실행 결과이다.  
 
-![AvgFilter_1](https://github.com/RoyalAzalea/RoyalAzalea.github.io/blob/master/static/img/_posts/kalman-filter-study/AvgFilter_1.PNG)
+![AvgFilter_1](https://raw.githubusercontent.com/RoyalAzalea/RoyalAzalea.github.io/master/static/img/_posts/kalman-filter-study/AvgFilter_1.png)
 
 ![gd]({{site.url}}/master/static/img/_posts/kalman-filter-study/AvgFilter_1.png)
 
