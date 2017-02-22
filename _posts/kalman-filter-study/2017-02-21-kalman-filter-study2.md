@@ -66,7 +66,7 @@ $$
 $\alpha$와 $k$ 사이에는 다음과 같은 관계식이 성립한다.
 
 $$
-\alpha = {k-1 \over k} = 1 - {1 \over k}
+\alpha = {k-1 \over k} = 1 - {1 \over k} \\\\
 \therefore {1 \over k} = 1 - \alpha
 $$
 
@@ -75,7 +75,7 @@ $$
 
 $$\begin{align}
 \overline{x_k} &=& {k-1 \over k}\overline{x_{k-1}} + {1 \over k}x_k \\\\
-               &=& \alpha\overline{x_{k-1}} + (1-\alpha)x_k
+               &=& \alpha\overline{x_{k-1}} + {(1-\alpha)x_k}
                \label(1.4)\tag(1.4)
 \end{align}$$
 
