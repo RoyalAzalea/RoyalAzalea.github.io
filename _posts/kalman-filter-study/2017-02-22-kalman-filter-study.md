@@ -42,7 +42,7 @@ $x_{k-n}$을 뺀 대신 $x_k$를 새로 추가해서 구한 평균이라는 것�
 
 $$
 \begin{align}
-\overline{x_k} - \overline{x_{k-1}} &= { x_{k-n+1} + x_{k-n+2} + \cdots + x_k \over n} - { x_{k-n} + x_{k-n+1} + \cdots + x_{k-1} \over n}
+\overline{x_k} - \overline{x_{k-1}} &= { x_{k-n+1} + x_{k-n+2} + \cdots + x_k \over n} - { x_{k-n} + x_{k-n+1} + \cdots + x_{k-1} \over n} \\\\
 &= {x_k - x_{k-n} \over n}
 \end{align}
 $$
