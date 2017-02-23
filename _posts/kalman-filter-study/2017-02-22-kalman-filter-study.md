@@ -59,7 +59,7 @@ $$
 이점도 없다. 즉, 이동평균 필터의 경우 재귀식이나 배치식이나 성능이 비슷하다.  
 
 이제 이동평균 필터를 MATLAB 함수로 구현하겠다. `MovAvgFilter.m`은 재귀식으로 구현하였고,
-`MovAvgFilter2`는 배치식으로 구현하였다.  
+`MovAvgFilter2.m`는 배치식으로 구현하였다.  
 
 **MovAvgFilter**
 
