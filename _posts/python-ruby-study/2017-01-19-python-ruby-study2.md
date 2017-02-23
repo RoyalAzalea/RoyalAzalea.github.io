@@ -6,7 +6,7 @@ categories: [python, ruby]
 ---
 
 python과 ruby의 반복문 중 while문에 대해 보겠다. while문 사용시 반복조건 다음에
-python은 `:`를 써야되고 ruby는 `do-end`를 써서 실행영역을 구분한다.
+python은 `:`를 써야되고 ruby는 `do-end`를 써서 실행영역을 구분한다.  
 
 **python**
 
@@ -34,7 +34,7 @@ After while
 
 
 while문의 반복조건을 변화시킨 예제이다. python은 `str`을 이용해서 정수의 값을 문자열로
-바꿔준다. ruby는 `.to_s()`를 이용해서 정수의 값을 문자열로 바꿔준다.
+바꿔준다. ruby는 `.to_s()`를 이용해서 정수의 값을 문자열로 바꿔준다.  
 
 **python**
 
@@ -74,7 +74,7 @@ end
 
 
 while문과 조건문을 같이 활용한 예제이다. python과 ruby둘다 `break`를 통해 반복문을
-빠져나갈 수 있다!
+빠져나갈 수 있다!  
 
 **python**
 

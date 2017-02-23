@@ -6,10 +6,11 @@ categories: [python, ruby]
 ---
 
 컨테이너는 무언가를 담는 그릇이다. 변수도 컨테이너의 일종이고 하나의 값을 담는 그릇이다.
-여러개의 값을 담는 그릇도 있다. 그 중 python에서는 list, ruby에서는 array를 사용해보자.
-python에서 list를 사용하는 예제이다. python에서 type의 괄호에 변수나 확인하고 싶은걸
+여러개의 값을 담는 그릇도 있다. 그 중 python에서는 list, ruby에서는 array를 사용해보자.  
+
+아래는 python에서 list를 사용하는 예제이다. python에서 type의 괄호에 변수나 확인하고 싶은걸
 넣고 print하면 데이터형이 무엇인지 확인할 수 있다. list를 `print`하면 담고있는 값들을
-보여주고 array처럼 index를 이용해서 한개의 값에 접근가능함!
+보여주고 array처럼 index를 이용해서 한개의 값에 접근가능함!  
 
 **python**
 
@@ -47,10 +48,10 @@ Azalea
 ```
 
 
-ruby에서 array를 사용하는 예제이다. ruby에서는 `.class`를 붙여 데이터형이 무엇인지 확인
+아래는 ruby에서 array를 사용하는 예제이다. ruby에서는 `.class`를 붙여 데이터형이 무엇인지 확인
 할 수 있다. array에 `puts`를 사용하면 원소를 하나마다 출력하고 개행한다. `print`를 쓰면
 쫘르륵 나열해주고 개행하지 않는다. ruby에서 개행하려면 `"\n"`를 사용하면 된다. `'\n'`는
-문자열 그대로를 출력하므로 개행이 일어나지 않음!
+문자열 그대로를 출력하므로 개행이 일어나지 않음!  
 
 **ruby**
 
@@ -78,7 +79,7 @@ Royal
 
 
 python과 ruby 둘 다 각 홈페이지에서 사용설명서를 볼 수 있다. 사용설명서는 문서로 불리며
-필요한 것들을 사용할 때 참고하자!
+필요한 것들을 사용할 때 참고하자!  
 
 **python**
 
@@ -91,7 +92,7 @@ python과 ruby 둘 다 각 홈페이지에서 사용설명서를 볼 수 있다.
 * standard library API는 `import`해서 사용할 수 있는 정보
 
 
-이제 문서를 사용해서 python의 list와 ruby의 array의 여러기술을 사용해보겠다.
+이제 문서를 사용해서 python의 list와 ruby의 array의 여러기술을 사용해보겠다.  
 
 **python**
 
