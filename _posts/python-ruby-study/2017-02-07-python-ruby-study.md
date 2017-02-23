@@ -9,6 +9,7 @@ categories: [python, ruby]
 필요할때 사용한다. **재정의를 하는 방법은 부모클래스의 수정할 method 이름을 그대로
 사용하여 자식클래스에서 method를 정의하면 된다. 재정의를 하면 부모클래스의 method가
 자식클래스의 method에 의해 가려지게 된다.**  
+
 아래 기본 예제를 보자. `o.m()`이 실행되면 `C1_class`의 method인 `m`이 아닌 `C2_class`의
 method인 `m`이 실행된다. 만약 부모클래스의 method를 사용하고 싶으면 `super` 키워드를
 사용하면된다.  
