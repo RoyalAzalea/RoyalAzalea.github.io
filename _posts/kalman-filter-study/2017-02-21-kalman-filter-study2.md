@@ -163,9 +163,11 @@ end
 
 위 `GetVolt.m`은 전압값을 읽어오는 함수로 측정하는 전압은 평균이 $14.4$ 볼트이고 잡음이
 섞여있다. 잡음의 평균은 $0$ 이고 표준편차가 $4$라고 가정한다. 잡음은 MATLAB의 내장함수
-`randn`로 만들었다. 아래는 실행 결과이다.  
+`randn`로 만들었다. 아래는 실행 결과이다.    
 
 ![AvgFilter_1](https://raw.githubusercontent.com/RoyalAzalea/RoyalAzalea.github.io/master/static/img/_posts/kalman-filter-study/AvgFilter_1.PNG)
+
+(`x: Time[sec], y:Volt[V]`)  
 
 정리하면 재귀식인 평균 필터는 직전 평균값과 데이터 개수만 알면 쉽게 평균을 구할 수 있다.
 특히 데이터가 순차적으로 입력되는 경우에는 데이터를 저장할 필요가 없고 계산 효율도 높다.

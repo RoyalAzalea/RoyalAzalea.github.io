@@ -191,6 +191,8 @@ end
 
 ![MovAvgFilter_1](https://raw.githubusercontent.com/RoyalAzalea/RoyalAzalea.github.io/master/static/img/_posts/kalman-filter-study/MovAvgFilter_1.PNG)
 
+(`x: Time[sec], y:Altitude[m]`)  
+
 위 그래프을 보면 이동평균 처리된 고도에 약간씩 시간지연이 있다. 실제 고도의 변화가 바로
 반영되지 않고 조금씩 늦게 나타나고 있다. 만약 시간지연이 너무 크다면 데이터 개수를
 줄여야한다. 대신 측정 잡음을 제거하는 성능은 더 떨어지게 된다. 반대로 데이터 개수를
@@ -199,7 +201,11 @@ end
 
 ![MovAvgFilter_2](https://raw.githubusercontent.com/RoyalAzalea/RoyalAzalea.github.io/master/static/img/_posts/kalman-filter-study/MovAvgFilter_2.PNG)
 
+(`x: Time[sec], y:Altitude[m]`)  
+
 ![MovAvgFilter_3](https://raw.githubusercontent.com/RoyalAzalea/RoyalAzalea.github.io/master/static/img/_posts/kalman-filter-study/MovAvgFilter_3.PNG)
+
+(`x: Time[sec], y:Altitude[m]`)  
 
 위 그래프들을 보면 데이터 개수에 따른 잡음 제거와 시간지연의 변화를 볼 수 있다. 데이터
 개수인 $n$은 잡음 제거와 변화 민감성이라는 상충된 요구를 절충하는 역할을 한다. 만약
