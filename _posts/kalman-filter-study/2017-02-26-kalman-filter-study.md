@@ -119,14 +119,63 @@ $$
 **LPF.m**
 
 ```matlab
+function [ xlpf ] = LPF(x)
+% 저주파 통과 필터 함수
+%   재귀적 구현
+% 평균값이 아닌 추정값 사용
+
+persistent prevX
+persistent firstRun
+
+if isempty(firstRun)
+    % 추정값이 초기의 측정값과 너무 동떨어지지 않도록, 0 대신 첫 번째 측정 데이터로 초기화함
+    prevX = x;
+
+    firstRun = 1;
+end
+
+% 가중치 설정
+alpha = 0.7;
+xlpf = alpha*prevX + (1 - alpha)*x;
+
+prevX = xlpf;
+
+end
 ```
+
 
 다음은 저주파 통과 필터를 테스트하는 예제이다.  
 
 **TestLPF.m**
 
 ```matlab
+clear all
+
+Nsamples = 500;
+Xsaved = zeros(Nsamples, 1);
+Xmsaved = zeros(Nsamples, 1);
+
+for k=1:Nsamples
+    xm = GetSonar();
+    x  = LPF(xm);
+
+    Xsaved(k) = x;
+    Xmsaved(k) = xm;
+end
+
+dt = 0.02;
+t = 0:dt:Nsamples*dt-dt;
+
+figure
+hold on
+plot(t, Xmsaved, 'r.');
+plot(t, Xsaved, 'b');
+xlabel('Time[sec]');
+ylabel('Altitude[m]');
+text(1,100,'\alpha = 0.7');
+legend('Measured','LPF','location','NorthWest')
 ```
+
 
 위 `TestLPF.m`에서 쓰인 `GetSonar`는 2장에서 쓰인 것과 동일하다. 즉, 이 예제와 2장의
 이동평균 필터에서 사용하는 측정 데이터는 동일하다.  
@@ -137,7 +186,7 @@ $$
 선정했는지가 중요하다. 1차 저주파 통과 필터의 $\alpha$는 이동평균 필터의 데이터
 개수($n$)와 비슷한 역할을 한다. 이 값으로 잡음 제거와 변화 추종 성능을 절충할 수 있다.  
 
-(`x: Time[sec], y:Altitude[m]`)  
+![LPF_1](https://raw.githubusercontent.com/RoyalAzalea/RoyalAzalea.github.io/master/static/img/_posts/kalman-filter-study/LPF_1.PNG)  
 
 아래는 $\alpha$를 각기 달리 설정한 실행 결과이다. **$\alpha$의 값이 작으면 잡음이 더
 많고, $\alpha$의 값이 크면 잡음은 줄어든 대신 시간지연이 더 커진다.**  
@@ -149,9 +198,7 @@ $$
 추정값이 직전 추정값에서 별로 달라지지 않는다. 결국 $\alpha$가 크면 잡음이 줄어들고
 추정값 그래프의 변화가 무뎌진다.  
 
-(`x: Time[sec], y:Altitude[m]`)  
-
-(`x: Time[sec], y:Altitude[m]`)  
+![LPF_2](https://raw.githubusercontent.com/RoyalAzalea/RoyalAzalea.github.io/master/static/img/_posts/kalman-filter-study/LPF_2.PNG)  
 
 정리하면 1차 저주파 통과 필터는 이동평균 필터와 달리 최신 측정값일수록 가중치를 높게 주는
 좋은 특성을 가졌다. 이 덕분에 측정 신호의 변화 추이를 이동평균 필터보다 더 잘 감지해낸다.

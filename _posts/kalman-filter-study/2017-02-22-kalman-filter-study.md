@@ -157,8 +157,10 @@ figure
 hold on
 plot(t, Xmsaved, 'r.');
 plot(t, Xsaved, 'b');
-text(1,110,'n=10')
-legend('Measured','Moving average')
+xlabel('Time[sec]');
+ylabel('Altitude[m]');
+text(1,100,'n=10');
+legend('Measured','LPF','location','NorthWest')
 ```
 
 **GetSonar.m**
@@ -189,9 +191,7 @@ end
 위 `GetSonar.m`는 초음파 거리계의 측정값을 읽어오는 함수이다. 측정 데이터는 미리 준비된
 `SonarAlt.mat` 파일에서 가져온다. 아래는 실행 결과이다.  
 
-![MovAvgFilter_1](https://raw.githubusercontent.com/RoyalAzalea/RoyalAzalea.github.io/master/static/img/_posts/kalman-filter-study/MovAvgFilter_1.PNG)
-
-(`x: Time[sec], y:Altitude[m]`)  
+![MovAvgFilter_1](https://raw.githubusercontent.com/RoyalAzalea/RoyalAzalea.github.io/master/static/img/_posts/kalman-filter-study/MovAvgFilter_1.PNG)  
 
 위 그래프을 보면 이동평균 처리된 고도에 약간씩 시간지연이 있다. 실제 고도의 변화가 바로
 반영되지 않고 조금씩 늦게 나타나고 있다. 만약 시간지연이 너무 크다면 데이터 개수를
@@ -199,13 +199,9 @@ end
 늘리면 잡음 제거 성능은 개선되지만 시간지연은 커진다. 아래는 데이터 개수를 변화시킨
 실행 결과이다. 아래는 데이터 개수를 변경시킨 실행 결과이다.  
 
-![MovAvgFilter_2](https://raw.githubusercontent.com/RoyalAzalea/RoyalAzalea.github.io/master/static/img/_posts/kalman-filter-study/MovAvgFilter_2.PNG)
+![MovAvgFilter_2](https://raw.githubusercontent.com/RoyalAzalea/RoyalAzalea.github.io/master/static/img/_posts/kalman-filter-study/MovAvgFilter_2.PNG)  
 
-(`x: Time[sec], y:Altitude[m]`)  
-
-![MovAvgFilter_3](https://raw.githubusercontent.com/RoyalAzalea/RoyalAzalea.github.io/master/static/img/_posts/kalman-filter-study/MovAvgFilter_3.PNG)
-
-(`x: Time[sec], y:Altitude[m]`)  
+![MovAvgFilter_3](https://raw.githubusercontent.com/RoyalAzalea/RoyalAzalea.github.io/master/static/img/_posts/kalman-filter-study/MovAvgFilter_3.PNG)  
 
 위 그래프들을 보면 데이터 개수에 따른 잡음 제거와 시간지연의 변화를 볼 수 있다. 데이터
 개수인 $n$은 잡음 제거와 변화 민감성이라는 상충된 요구를 절충하는 역할을 한다. 만약
