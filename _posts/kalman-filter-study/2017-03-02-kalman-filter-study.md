@@ -4,7 +4,7 @@ title: "Kalman Filter Study _ 5장. 칼만 필터 개요"
 date: 2017-03-02
 categories: [kalman_filter, matlab]
 ---
-$\usepackage{romannum}$
+\usepackage{romannum}
 
 아래는 칼만 필터 알고리즘이다.  
 
