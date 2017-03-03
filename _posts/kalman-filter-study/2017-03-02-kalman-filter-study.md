@@ -4,10 +4,11 @@ title: "Kalman Filter Study _ 5장. 칼만 필터 개요"
 date: 2017-03-02
 categories: [kalman_filter, matlab]
 ---
+$\usepackage{romannum}$
 
 아래는 칼만 필터 알고리즘이다.  
 
-![Kalman_algo](https://raw.githubusercontent.com/RoyalAzalea/RoyalAzalea.github.io/master/static/img/_posts/kalman-filter-study/Kalman_algo.PNG)  
+![Kalman_algorism](https://raw.githubusercontent.com/RoyalAzalea/RoyalAzalea.github.io/master/static/img/_posts/kalman-filter-study/Kalman_algorism.PNG)  
 
 위 그림에서 점선으로 둘러싼 부분이 칼만 필터 알고리즘이다. 입력과 출력이 하나씩인 간단한
 구조로, 측정값($z_k$)을 입력으로 받아 내부에서 처리한 다음 추정값(\hat{x}_k)을 출력한다.
@@ -21,7 +22,7 @@ categories: [kalman_filter, matlab]
 단계에서는 $II~IV$단계에서 계속 사용하는 두 변수 $\hat{x}_k^{-}$와 $P_k^{-}$를 계산한다.
 이 예측 단계는 시스템 모델과 밀접히 관련되어 있다.  
 
-$\rom{2}$단계에서는 칼만 이득($K_k$)을 계산한다. 변수 $P_k^{-}$는 앞
+$\romannum{2}$단계에서는 칼만 이득($K_k$)을 계산한다. 변수 $P_k^{-}$는 앞
 단계에서 계산한 값을 사용한다. 그리고 $H$와 $R$은 칼만 필터 알고리즘 밖에서 미리
 결정한다.  
 
@@ -34,9 +35,9 @@ $\Roman{2}$단계에서는 입력된 측정값으로 추정값을 계산한다. 
 
 아래 칼만 필터 알고리즘에서 쓰이는 변수를 용도별로 구분했다.  
 
-**외부 입력 :** $z_k$(측정값)  
+**외부 입력 :** $z_k$ (측정값)  
 
-**최종 출력 :** $\hat{x}_k$(추정값)  
+**최종 출력 :** $\hat{x}_k$ (추정값)  
 
 **시스템 모델 :** $A, H, Q, R$  
 
@@ -61,7 +62,7 @@ $\Roman{2}$단계에서는 입력된 측정값으로 추정값을 계산한다. 
 
 * 예측 과정  
 
-$$단계가 여기에 해당된다. 직전 추정값($\hat{x}_{k-1}$)과 오차 공분산($P_{k-1}$)을
+$\textrm{XXIV}$단계가 여기에 해당된다. 직전 추정값($\hat{x}_{k-1}$)과 오차 공분산($P_{k-1}$)을
 입력으로 받아서, 최종 결과로 예측값($\hat{x}_k^{-}, P_k^{-}$)을 내놓는다. 이 값들은
 추정 과정에 사용된다. 예측 과정에서 사용하는 시스템 모델 변수는 $A$와 $Q$이다.  
 
