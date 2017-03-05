@@ -37,11 +37,10 @@ $\hat{x}_k^{-}$는 $\textrm{I}$단계에서 계산한 값이다.
 
 $$
 \begin{framebox}
-adjgoisjiogdji \\\\
-sdoigjsdiog \\\\
-\\\\
-sdjgoisdgjio \\\
-sdjogisdjiog
+외부 입력 : z_k (측정값) \par
+최종 출력 : \hat{x}_k (추정값) \par
+시스템 모델 : A, H, Q, R \par
+내부 계산용 : \hat{x}_k^{-}, P_k^{-}, P_k, K_k \par
 \end{framebox}
 $$
 
