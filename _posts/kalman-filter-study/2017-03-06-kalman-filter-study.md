@@ -10,7 +10,7 @@ categories: [kalman_filter, matlab]
 
 ## 7.1 예측값 계산  
 
-예측 과정에서는 시각이 $t_k$에서 $t_{k+1}$로 바뀔 때, 추정값 $\hat{x}_k$가 어떻게
+예측 과정에서는 시각이 $t_k$에서 $t_{k+1}$로 바뀔 때, 추정값($\hat{x}_k$) 어떻게
 변하는지를 추측한다. 즉 현재 시각의 추정값이 다음 시각 $t_{k+1}$에서는 어떤 값이 될지를
 예측한다.  
 
@@ -39,7 +39,7 @@ $$
 $$
 \begin{table}[H]
 \begin{center}
-\begin{tabular}{c|c|c}
+\begin{tabular}{|c|c|c|}
 \hline
 \hat{x}_k & 상태변수(x_k)\,추정값 \\\\
 \hline
