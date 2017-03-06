@@ -68,7 +68,7 @@ $$
 
 $$
 1차\,저주파\,통과\,필터\,:\, \overline{x_k} = (1-K)\overline{x_{k-1}} + Kx_k \\\\
-칼만\,필터\,:\qquad\qquad \hat{x}_k = (I - K_k)\hat{x}_k^{-} + K_kz_k
+칼만\,필터\,:\qquad\qquad\; \hat{x}_k = (I - K_k)\hat{x}_k^{-} + K_kz_k
 $$  
 
 두 식의 모양이 매우 비슷하다! 1차 저주파 통과 필터는 직전 추정값과 측정값에 가중치를
