@@ -7,7 +7,7 @@ categories: [kalman_filter, matlab]
 
 아래는 칼만 필터 알고리즘이다.  
 
-![Kalman_algorism](https://raw.githubusercontent.com/RoyalAzalea/RoyalAzalea.github.io/master/static/img/_posts/kalman-filter-study/Kalman_algorism.PNG)  
+![Kalman_algorithm](https://raw.githubusercontent.com/RoyalAzalea/RoyalAzalea.github.io/master/static/img/_posts/kalman-filter-study/Kalman_algorithm.PNG)  
 
 위 그림에서 점선으로 둘러싼 부분이 칼만 필터 알고리즘이다. 입력과 출력이 하나씩인 간단한
 구조로, 측정값($z_k$)을 입력으로 받아 내부에서 처리한 다음 추정값($\hat{x}_k$)을 출력한다.
