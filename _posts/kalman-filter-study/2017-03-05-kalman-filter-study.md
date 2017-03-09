@@ -19,7 +19,7 @@ $\textrm{III}$단계인 추정값 계산부터 시작한다. 추정값을 계산
 살펴보자.  
 
 $$
-\hat{x}_k = \hat{x}_k^{-} + K_k{z_k - H\hat{x}_k^{-}} \label{6.1}\tag{6.1}
+\hat{x}_k = \hat{x}_k^{-} + K_k({z_k - H\hat{x}_k^{-}}) \label{6.1}\tag{6.1}
 $$  
 
 여기서 $z_k$는 측정값을 뜻하고, $\hat{x}_k^{-}$는 예측값을 의미한다. 예측값이 무엇인지는
@@ -31,7 +31,7 @@ $$
 
 $$
 \begin{align}
-\hat{x}_k &= \hat{x}_k^{-} + K_k{z_k - H\hat{x}_k^{-}} \\\\
+\hat{x}_k &= \hat{x}_k^{-} + K_k({z_k - H\hat{x}_k^{-}}) \\\\
 &= \hat{x}_k^{-} + K_kz_k - K_kH\hat{x}_k^{-} \\\\
 &= (I - K_kH)\hat{x}_k^{-} + K_kz_k \label{6.2}\tag{6.2}
 \end{align}
@@ -91,7 +91,7 @@ $H$가 단위행렬이라고 가정했다. 이 덕분에 칼만 필터의 추정
 무엇인지 검토해 보자. 식 $\ref{6.1}$을 다시 옮겨와 보자.  
 
 $$
-\hat{x}_k = \hat{x}_k^{-} + K_k{z_k - H\hat{x}_k^{-}}
+\hat{x}_k = \hat{x}_k^{-} + K_k({z_k - H\hat{x}_k^{-}})
 $$  
 
 우선 예측값(\hat{x}_k^{-})과 새로운 측정값{z_k}이 있어야 한다. 저주파 통과 필터와
