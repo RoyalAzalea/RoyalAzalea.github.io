@@ -74,7 +74,7 @@ $$
 $\textrm{III}$단계의 추정값 계산식에 포함되어 있는데, 아래 식에서 진하게 표시한 부분이다.  
 
 $$
-\mathbf{Hx_k} \boldsymbol{Hx_k} 
+\hat{x}_k = \hat{x}_k^{-} + K_k({z_k - \mathbf{H\hat{x}_k^{-}}})  \label{8.4}\tag{8.4}
 $$  
 
 이 항은 시스템 모델의 식 $\ref{8.2}$와 관련 있다. 식 $\ref{8.3}$과 $\ref{8.4}$를
