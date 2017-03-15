@@ -17,12 +17,13 @@ categories: [kalman_filter, matlab]
 전압을 상태변수($x_k$)로 하는 다음과 같은 시스템 모델이다.  
 
 $$
-x_{k+1} = x_k \\\\
-z_k = x_k + v_k \\\\
-\\\\
-x_{0} = 14 \\\\
-v_k = N(0,2^2)
+\begin{align}
+x_{k+1} &=& x_k \\\\
+z_k &=& x_k + v_k \\\\
+x_{0} &=& 14 \\\\
+v_k &=& N(0,2^2)
 \label{10.1}\tag{10.1}
+\end{align}
 $$  
 
 시스템 모델에는 정답이 없다. 최대한 실제 시스템과 비슷해야 한다는 원칙만 있다. 그럼
@@ -270,7 +271,7 @@ ylabel('K')
 
 아래 그림으로 시간에 따른 오차 공분산의 변화를 볼 수 있다.  
 
-![SimpleKalman_3](https://raw.githubusercontent.com/RoyalAzalea/RoyalAzalea.github.io/master/static/img/_posts/kalman-filter-study/SimpleKalman_3.PNG)  
+![SimpleKalman_4](https://raw.githubusercontent.com/RoyalAzalea/RoyalAzalea.github.io/master/static/img/_posts/kalman-filter-study/SimpleKalman_4.PNG)  
 
 칼만 이득 그래프도 비슷한 경향을 보인다. 처음에는 아주 빠른 속도로 줄어들다가 차츰
 느려져서 나중에는 거의 일정한 값을 유지한다. 그럼 칼만 이득이 작아진다는 것이 어떤
@@ -281,16 +282,17 @@ $$
 $$  
 
 위의 식에서 칼만 이득($K_k$)이 작으면 $K_k(z_k - H\hat{x}_k^{-})$도 작은 값을 갖게
-되어 추정값 계산에 거의 기여하지 못하게 된다. 반대로 예측값($\hat{x}_k^{-}$)이
-추정값에 미치는 영향은 더 커지게 된다. 그런데 예측값은 이전 추정값에
-비례하므로($\hat{x}_k^{-} = A\hat{x}_{k-1}$), 새로운 추정값에는
+되어 추정값 계산에 거의 기여하지 못하게 된다.  
+
+반대로 예측값($\hat{x}_k^{-}$)이 추정값에 미치는 영향은 더 커지게 된다. 그런데
+예측값은 이전 추정값에 비례하므로($\hat{x}_k^{-} = A\hat{x}_{k-1}$), 새로운 추정값에는
 이전 추정값($\hat{x}_{k-1}$)이 주로 반영된다. **즉 칼만 이득이 작아지면, 추정값은
 별로 변하지 않게 된다.** 추정 오차가 충분히 작아져서 더 이상 추정값이 변하지 않는
 상태로 수렴한 것 이다.  
 
 아래 그림으로 시간에 따른 칼만 이득의 변화를 볼 수 있다.  
 
-![SimpleKalman_4](https://raw.githubusercontent.com/RoyalAzalea/RoyalAzalea.github.io/master/static/img/_posts/kalman-filter-study/SimpleKalman_4.PNG)  
+![SimpleKalman_3](https://raw.githubusercontent.com/RoyalAzalea/RoyalAzalea.github.io/master/static/img/_posts/kalman-filter-study/SimpleKalman_3.PNG)  
 
 ## 10.5 정리  
 
