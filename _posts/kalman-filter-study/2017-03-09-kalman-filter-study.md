@@ -71,10 +71,11 @@ $$
 $$
 
 이 식은 시스템 모델의 식 $\ref{8.1}$에서 유래한 것이다. 또 다른 한 곳은
-$\textrm{III}$단계의 추정값 계산식에 포함되어 있는데, 아래 식에서 진하게 표시한 부분이다.  
+$\textrm{III}$단계의 추정값 계산식에 포함되어 있는데, 아래 식에서 파란색으로 표시한
+부분이다.  
 
 $$
-\hat{x}_k = \hat{x}_k^{-} + K_k({z_k - \mathbf{H\hat{x}_k^{-}}})  \label{8.4}\tag{8.4}
+\hat{x}_k = \hat{x}_k^{-} + K_k({z_k - \color{blue}{H\hat{x}_k^{-}}})  \label{8.4}\tag{8.4}
 $$  
 
 이 항은 시스템 모델의 식 $\ref{8.2}$와 관련 있다. 식 $\ref{8.3}$과 $\ref{8.4}$를
@@ -165,6 +166,6 @@ $\ref{6.3}$에서 측정값이 더 많이 반영된다. **따라서 측정값의
 변화들을 알 수 있다.  
 
 $$
-Q\,\Uparrow, R\,\Downarrow\,\Rightarrow\,측정값\,반영\,\Uparrow\,\Rightarrow\,잡음\,제거\,\Downarrow ,\,시간\,지연\,\Downarrow \\\\
-Q\,\Downarrow, R\,\Uparrow\,\Rightarrow\,측정값\,반영\,\Downarrow\,\Rightarrow\,잡음\,제거\,\Uparrow ,\,시간\,지연\,\Uparrow
+Q\,\Uparrow\, or\, R\,\Downarrow\,\Rightarrow\,측정값\,반영\,\Uparrow\,\Rightarrow\,잡음\,제거\,\Downarrow ,\,시간\,지연\,\Downarrow \\\\
+Q\,\Downarrow\, or\, R\,\Uparrow\,\Rightarrow\,측정값\,반영\,\Downarrow\,\Rightarrow\,잡음\,제거\,\Uparrow ,\,시간\,지연\,\Uparrow
 $$
