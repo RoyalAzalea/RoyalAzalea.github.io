@@ -78,7 +78,7 @@ $$
 $$
 \begin{align}
 \hat{x}_k &= \hat{x}_k^{-} + K_k({z_k - H\hat{x}_k^{-}}) \\\\
-&= A\hat{x}_{k-1} + K_k{z_k - HA\hat{x}_{k-1}
+&= A\hat{x}_{k-1} + K_k{z_k - HA\hat{x}_{k-1}}  
 \end{align}
 $$  
 
