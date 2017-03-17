@@ -76,15 +76,15 @@ $$
 
 $$
 \begin{align}
-\begin{bmatrix} 위치 \\\\ 속도 \end{bmatrix}_{k+1} &= \begin{bmatrix} 1 & \triangle t \\\\ 0 & 1 \end{bmatrix}\begin{bmatrix} 위치 \\\\ 속도 \end{bmatrix}_{k} + \begin{bmatrix} 0 \\\\ w_k \end{bmatrix}
-&= \begin{bmatrix} 위치+속도 \dot \triangle t \\\\ 속도 + w \end{bmatrix}
+\begin{bmatrix} 위치 \\\\ 속도 \end{bmatrix}_{k+1} &= \begin{bmatrix} 1 & \triangle t \\\\ 0 & 1 \end{bmatrix}\begin{bmatrix} 위치 \\\\ 속도 \end{bmatrix}_{k} + \begin{bmatrix} 0 \\\\ w_k \end{bmatrix} \\\\
+&= \begin{bmatrix} 위치+속도 \cdot \triangle t \\\\ 속도 + w \end{bmatrix}
 \end{align}
 $$  
 
 먼저 위치와 관련된 관계식만 따로 떼어내서 살펴보겠다.  
 
 $$
-위치_{k+1} = 위치_{k} + 속도_{k} \dot \triangle t
+위치_{k+1} = 위치_{k} + 속도_{k} \cdot \triangle t
 $$  
 
 이 식은 **'현재 위치 = 직전 위치 + 이동거리'** 라는 물리 법칙을 수식으로 표현한 것이다.
@@ -105,7 +105,7 @@ $$
 $$
 \begin{align}
 z_k &= Hx_k + v_k \\\\
-&= \begin{bmatrix} 1 & 0 \end{bmatrix} + v_k \\\\
+&= \begin{bmatrix} 1 & 0 \end{bmatrix}\begin{bmatrix} 위치 \\\\ 속도 \end{bmatrix}_{k} + v_k \\\\
 &= 위치_{k} + v_k
 \end{align}
 $$  

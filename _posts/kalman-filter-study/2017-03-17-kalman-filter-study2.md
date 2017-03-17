@@ -262,8 +262,8 @@ $$
 
 $$
 \begin{align}
-P_k^{-}H^{T} &= \begin{bmatrix} P_11^{-} & P_12^{-} \\\\ P_21^{-} & P_22^{-}  \end{bmatrix}\begin{bmatrix} 1 \\\\ 0 \end{bmatrix} \\\\
-&= \begin{bmatrix} P_11^{-} \\\\ P_21^{-} \end{bmatrix}
+P_k^{-}H^{T} &= \begin{bmatrix} P_{11}^{-} & P_{12}^{-} \\\\ P_{21}^{-} & P_{22}^{-}  \end{bmatrix}\begin{bmatrix} 1 \\\\ 0 \end{bmatrix} \\\\
+&= \begin{bmatrix} P_{11}^{-} \\\\ P_{21}^{-} \end{bmatrix}
 \end{align}
 $$  
 
@@ -271,8 +271,8 @@ $$
 
 $$
 \begin{align}
-HP_k^{-}H^{T} + R &= \begin{bmatrix} 1 & 0 \end{bmatrix}\begin{bmatrix} P_11^{-} & P_21^{-} \end{bmatrix} + R \\\\
-&= P_11^{-} + R
+HP_k^{-}H^{T} + R &= \begin{bmatrix} 1 & 0 \end{bmatrix}\begin{bmatrix} P_{11}^{-} \\\\ P_{21}^{-} \end{bmatrix} + R \\\\
+&= P_{11}^{-} + R
 \end{align}
 $$  
 
