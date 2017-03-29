@@ -37,7 +37,7 @@ categories: [kalman_filter, matlab]
 찾으면 된다. 요각($\varphi$)은 수평 자세에서는 전혀 영향을 주지 않으므로 고려할 필요가
 없다.  
 
-예제 시험 절차는 다음과 같다. 주파수 $0.2 Hz$, 최대 진폭 $\mp{30^\circ}$인 정현파로
+예제 시험 절차는 다음과 같다. 주파수 $0.2 Hz$, 최대 진폭 $\pm{30^\circ}$인 정현파로
 항법센서를 흔드는 시험을 실시했다.  
 
 ![ARS_sub1](https://raw.githubusercontent.com/RoyalAzalea/RoyalAzalea.github.io/master/static/img/_posts/kalman-filter-study/ARS_sub1.PNG)  
@@ -66,7 +66,7 @@ categories: [kalman_filter, matlab]
 적분한 값을 더하여 현재의 오일러각을 구할 수 있다.**  
 
 $$
-\begin{bmatrix} \dot{\phi} \\\\ \dot{\theta} \\\\ \dot{\varphi} \end{bmatrix} = \begin{bmatrix} 1 & \sin{\phi}\tan{\theta} & \cos{\phi}\tan{\theta} \\\\ 0 & cos{\phi} & -\sin{\phi} \\\\ 0 & \sin{\phi}/\cos{\theta} & \cos{\phi}/\cos{theta} \end{bmatrix} \label{13.1}\tag{13.1}
+\begin{bmatrix} \dot{\phi} \\\\ \dot{\theta} \\\\ \dot{\varphi} \end{bmatrix} = \begin{bmatrix} 1 & \sin{\phi}\tan{\theta} & \cos{\phi}\tan{\theta} \\\\ 0 & cos{\phi} & -\sin{\phi} \\\\ 0 & \sin{\phi}/\cos{\theta} & \cos{\phi}/\cos{\theta} \end{bmatrix} \begin{bmatrix} p \\\\ q \\\\ r \end{bmatrix} \label{13.1}\tag{13.1}
 $$  
 
 이 식에 자이로의 측정 각속도($p,q,r$)를 대입해서 적분하면 현재 자세를 구할 수 있다. 물론
@@ -212,14 +212,14 @@ k = k + 1;
 ![ARS_1](https://raw.githubusercontent.com/RoyalAzalea/RoyalAzalea.github.io/master/static/img/_posts/kalman-filter-study/ARS_1.PNG)  
 
 그럼 `TestEulerGyro` 프로그램의 수행 결과를 살펴보겠다. 먼저 롤각($\phi$)을 보겠다.
-$50~130$ 초 사이에 $\mp{30\circ}$ 의 진폭으로 진동하는 움직임이 보인다.
-$180~250$ 초 사이에도 비슷한 움직임이 다시 나타난다. 외부에서 가한 진동이 잘 반영된
+$50 \sim 130$ 초 사이에 $\pm{30\circ}$ 의 진폭으로 진동하는 움직임이 보인다.
+$180 \sim 250$ 초 사이에도 비슷한 움직임이 다시 나타난다. 외부에서 가한 진동이 잘 반영된
 결과이다. 그런데 시간이 지나면서 오차가 조금씩 생기는게 보인다. **기동의 경향은 어느 정도
 맞지만, 자세각은 많이 편향되어 있다. 오차가 누적된 탓이다.**  
 
 ![ARS_2](https://raw.githubusercontent.com/RoyalAzalea/RoyalAzalea.github.io/master/static/img/_posts/kalman-filter-study/ARS_2.PNG)  
 
-이제 피치각($\theta$)의 변화를 살펴보겠다. $0~180$ 초 사이에는 피치축 기동이 없는데도
+이제 피치각($\theta$)의 변화를 살펴보겠다. $0 \sin 180$ 초 사이에는 피치축 기동이 없는데도
 측정값이 점점 커져간다. **롤축 기동의 영향을 받아 오차가 계속 쌓여가기 때문이다. 이렇게
 누적된 측정 오차가 상당하다.** 그렇다고 적분한 자세각이 아무런 쓸모도 없는 것은 아니다.
 **오차 누적으로 값은 편향되어 가지만, 기동 패턴은 잘 감지하고 있기 때문이다.**  
@@ -281,8 +281,8 @@ $$
 이 식에서 다음과 같은 롤각과 피치각의 공식을 유도해낼 수 있다.  
 
 $$
-\phi = \sin^{-1}{-f_y \over g\cos\theta} \\\\
-\theta = \sin^{-1}{f_x \over g} \label{13.4}\tag{13.4}
+\phi = \sin^{-1}{\left(-f_y \over g\cos\theta \right)} \\\\
+\theta = \sin^{-1}{\left( f_x \over g \right)} \label{13.4}\tag{13.4}
 $$  
 
 **움직이는 속도가 충분히 느리거나 속도의 크기와 방향이 빠르게 변하지 않는 경우에도 식
@@ -407,7 +407,7 @@ k = k + 1;
 
 가속도로 계산한 수평 자세를 살펴보겠다. 먼저 롤각 그래프를 보면 정현파 기동의 추이가 잘
 나타난다. 그리고 자이로와 달리 기동이 끝나면 다시 $0$도로 정확히 돌아온다. 오차가
-누적되지 않는다. 그런데 최대값은 $\mp9^\circ$ 정도로 실제 값인 $\mp30^\circ$에 미치지
+누적되지 않는다. 그런데 최대값은 $\pm9^\circ$ 정도로 실제 값인 $\pm30^\circ$에 미치지
 못한다. 오차가 상당히 커서 가속도계 단독으로 사용하기는 힘든 상태이다.  
 
 ![ARS_6](https://raw.githubusercontent.com/RoyalAzalea/RoyalAzalea.github.io/master/static/img/_posts/kalman-filter-study/ARS_6.PNG)  

@@ -50,7 +50,7 @@ categories: [kalman_filter, matlab]
 선택이다.  
 
 $$
-x = \begin{matrix} \phi \\\\ \theta \\\\ \varphi \end{matrix}
+x = \begin{Bmatrix} \phi \\\\ \theta \\\\ \varphi \end{Bmatrix}
 $$  
 
 예제에서는 수평 자세($\phi, \theta$)만 관심 있다고 했다. 따라서 요각($\varphi$)은
@@ -61,7 +61,7 @@ $$
 소개한 적이 있다.  
 
 $$
-\begin{bmatrix} \dot{\phi} \\\\ \dot{\theta} \\\\ \dot{\varphi} \end{bmatrix} = \begin{bmatrix} 1 & \sin{\phi}\tan{\theta} & \cos{\phi}\tan{\theta} \\\\ 0 & cos{\phi} & -\sin{\phi} \\\\ 0 & \sin{\phi}/\cos{\theta} & \cos{\phi}/\cos{theta} \end{bmatrix} \label{13.1}\tag{13.1}
+\begin{bmatrix} \dot{\phi} \\\\ \dot{\theta} \\\\ \dot{\varphi} \end{bmatrix} = \begin{bmatrix} 1 & \sin{\phi}\tan{\theta} & \cos{\phi}\tan{\theta} \\\\ 0 & cos{\phi} & -\sin{\phi} \\\\ 0 & \sin{\phi}/\cos{\theta} & \cos{\phi}/\cos{\theta} \end{bmatrix} \label{13.1}\tag{13.1}
 $$  
 
 **그런데 이 식을 시스템 모델로 삼기에는 심각한 문제가 있다. 시스템 모델이 되려면 다음과
@@ -69,7 +69,7 @@ $$
 밖으로 빼낼 방법이 없기 때문이다.**  
 
 $$
-x_{k+1} = Ax_k + w_k \Leftrightarrow \begin{matrix} \dot{\phi} \\\\ \dot{\theta} \\\\ \dot{\varphi} \end{matrix} = \begin{bmatrix} & & \\\\ & \bullet & \\\\ & & \end{bmatrix} \begin{matrix} \phi \\\\ \theta \\\\ \varphi \end{matrix} + w
+x_{k+1} = Ax_k + w_k \Leftrightarrow \begin{Bmatrix} \dot{\phi} \\\\ \dot{\theta} \\\\ \dot{\varphi} \end{Bmatrix} = \begin{bmatrix} & & \\\\ & \bullet & \\\\ & & \end{bmatrix} \begin{Bmatrix} \phi \\\\ \theta \\\\ \varphi \end{Bmatrix} + w
 $$  
 
 이럴 때는 어떻게 해야 할까? 고민할 것 없다. 칼만 필터를 쓰지 못한다. **무슨 수를 쓰더라도
@@ -80,13 +80,13 @@ $$
 두겠다.  
 
 $$
-x = \begin{matrix} q_1 \\\\ q_2 \\\\ q_3 \\\\ q_4 \end{matrix} \label{13.5}\tag{13.5}
+x = \begin{Bmatrix} q_1 \\\\ q_2 \\\\ q_3 \\\\ q_4 \end{Bmatrix} \label{13.5}\tag{13.5}
 $$  
 
 그런데 쿼터니언과 각속도의 관계는 이미 잘 알려져 있다.  
 
 $$
-\begin{matrix} \dot{q_1} \\\\ \dot{q_2} \\\\ \dot{q_3} \\\\ \dot{q_4} \end{matrix} = {1 \over 2}\begin{bmatrix} 0 & -p & -q & -r \\\\ p & 0 & r & -q \\\\ q & -r & 0 & p \\\\ r & q & -p & 0 \end{bmatrix}\begin{matrix} q_1 \\\\ q_2 \\\\ q_3 \\\\ q_4 \end{matrix} \label{13.6}\tag{13.6}
+\begin{Bmatrix} \dot{q_1} \\\\ \dot{q_2} \\\\ \dot{q_3} \\\\ \dot{q_4} \end{Bmatrix} = {1 \over 2}\begin{bmatrix} 0 & -p & -q & -r \\\\ p & 0 & r & -q \\\\ q & -r & 0 & p \\\\ r & q & -p & 0 \end{bmatrix}\begin{Bmatrix} q_1 \\\\ q_2 \\\\ q_3 \\\\ q_4 \end{Bmatrix} \label{13.6}\tag{13.6}
 $$
 
 상태변수만 바꿨을 뿐인데, 칼만 필터의 시스템 모델이 갖춰야 할 요구조건을 만족한다. **자세를
@@ -97,7 +97,7 @@ $$
 있다.  
 
 $$
-{\begin{matrix} q_1 \\\\ q_2 \\\\ q_3 \\\\ q_4 \end{matrix}}_{k+1} = \left( I + \triangle t \cdot {1 \over 2} \begin{bmatrix} 0 & -p & -q & -r \\\\ p & 0 & r & -q \\\\ q & -r & 0 & p \\\\ r & q & -p & 0 \end{bmatrix} \right) {\begin{matrix} q_1 \\\\ q_2 \\\\ q_3 \\\\ q_4 \end{matrix}}_k \label{13.7}\tag{13.7}
+{\begin{Bmatrix} q_1 \\\\ q_2 \\\\ q_3 \\\\ q_4 \end{Bmatrix}}_{k+1} = \left( I + \triangle t \cdot {1 \over 2} \begin{bmatrix} 0 & -p & -q & -r \\\\ p & 0 & r & -q \\\\ q & -r & 0 & p \\\\ r & q & -p & 0 \end{bmatrix} \right) {\begin{Bmatrix} q_1 \\\\ q_2 \\\\ q_3 \\\\ q_4 \end{Bmatrix}}_k \label{13.7}\tag{13.7}
 $$  
 
 위의 식에서 시스템 모델의 행렬 $A$는 다음과 같이 정의된다.  
@@ -114,7 +114,7 @@ $$
 바꿔서 사용해야 한다. 오일러각을 쿼터니언으로 바꾸는 공식은 다음과 같다.  
 
 $$
-\begin{matrix} q_1 \\\\ q_2 \\\\ q_3 \\\\ q_4 \end{matrix} = \begin{matrix} \cos{\phi \over 2}\cos{\theta \over 2}\cos{\varphi \over 2} + \sin{\phi \over 2}\sin{\theta \over 2}\sin{\varphi \over 2} \\\\ \sin{\phi \over 2}\cos{\theta \over 2}\cos{\varphi \over 2} - \cos{\phi \over 2}\sin{\theta \over 2}\sin{\varphi \over 2} \\\\ \cos{\phi \over 2}\sin{\theta \over 2}\cos{\varphi \over 2} + \sin{\phi \over 2}\cos{\theta \over 2}\sin{\varphi \over 2} \\\\ \cos{\phi \over 2}\cos{\theta \over 2}\sin{\varphi \over 2} - \sin{\phi \over 2}\sin{\theta \over 2}\cos{\varphi \over 2} \end{matrix}
+\begin{Bmatrix} q_1 \\\\ q_2 \\\\ q_3 \\\\ q_4 \end{Bmatrix} = \begin{Bmatrix} \cos{\phi \over 2}\cos{\theta \over 2}\cos{\varphi \over 2} + \sin{\phi \over 2}\sin{\theta \over 2}\sin{\varphi \over 2} \\\\ \sin{\phi \over 2}\cos{\theta \over 2}\cos{\varphi \over 2} - \cos{\phi \over 2}\sin{\theta \over 2}\sin{\varphi \over 2} \\\\ \cos{\phi \over 2}\sin{\theta \over 2}\cos{\varphi \over 2} + \sin{\phi \over 2}\cos{\theta \over 2}\sin{\varphi \over 2} \\\\ \cos{\phi \over 2}\cos{\theta \over 2}\sin{\varphi \over 2} - \sin{\phi \over 2}\sin{\theta \over 2}\cos{\varphi \over 2} \end{Bmatrix}
 \label{13.9}\tag{13.9}
 $$  
 
@@ -156,7 +156,7 @@ $$
 초기값의 물리적인 의미는 오일러각이 모두 $0$이라는 뜻이다.  
 
 $$
-\hat{x}_0^{-} = \begin{matrix} q_1 \\\\ q_2 \\\\ q_3 \\\\ q_4 \end{matrix} = \begin{matrix} 1 \\\\ 0 \\\\ 0 \\\\ 0 \end{matrix}, P_0^{-} = \begin{bmatrix} 1 & 0 & 0 & 0 \\\\ 0 & 1 & 0 & 0 \\\\ 0 & 0 & 1 & 0 \\\\ 0 & 0 & 0 & 1 \end{bmatrix}
+\hat{x}_0^{-} = \begin{Bmatrix} q_1 \\\\ q_2 \\\\ q_3 \\\\ q_4 \end{Bmatrix} = \begin{Bmatrix} 1 \\\\ 0 \\\\ 0 \\\\ 0 \end{Bmatrix}, P_0^{-} = \begin{bmatrix} 1 & 0 & 0 & 0 \\\\ 0 & 1 & 0 & 0 \\\\ 0 & 0 & 1 & 0 \\\\ 0 & 0 & 0 & 1 \end{bmatrix}
 $$  
 
 **EulerKalman.m**
@@ -282,7 +282,7 @@ z = [ cosPhi*cosTheta*cosPsi + sinPhi*sinTheta*sinPsi;
 ```
 
 
-센서 융합 결과를 보겠다. 다음 그래프에 롤각과 피치각의 궤적을 그렸다. $\mp30^\circ$ 의
+센서 융합 결과를 보겠다. 다음 그래프에 롤각과 피치각의 궤적을 그렸다. $\pm30^\circ$ 의
 움직임이 정확하게 측정되었다. 자이로와 가속도계의 결과와 비교해보면 놀라운 결과가 아닐 수
 없다. 애초의 설계 목표대로 자이로의 누적 오차가 없어졌고, 가속도계의 부정확성도
 제거되었다. 두 센서의 장점이 잘 융합된 덕분이다.  
