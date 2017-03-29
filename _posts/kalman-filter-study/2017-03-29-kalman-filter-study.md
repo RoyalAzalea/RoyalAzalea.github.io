@@ -32,7 +32,7 @@ categories: [kalman_filter, matlab]
 결정한 자세가 칼만 필터의 측정값이 된다. 즉, 자이로의 자세 오차를 가속도계로 보정하도록
 했다. 왜냐하면 각속도 자세는 발산해서 보정값으로 사용하기에 적합하지 않기 때문이다.**  
 
-그림(만들기)
+![ARS_sub2](https://raw.githubusercontent.com/RoyalAzalea/RoyalAzalea.github.io/master/static/img/_posts/kalman-filter-study/ARS_sub2.PNG)  
 
 ## 13.3.1 시스템 모델  
 
@@ -162,6 +162,39 @@ $$
 **EulerKalman.m**
 
 ```matlab
+function [phi theta psi] = EulerKalman(A, z)
+% 오일러각을 반환하는 칼만 필터 함수
+% 시스템 행렬 A와 측정값을 인자로 받아 오일러각을 반환
+persistent H Q R
+persistent x P
+persistent firstRun
+
+
+if isempty(firstRun)
+  H = eye(4);
+
+  Q = 0.0001*eye(4);
+  R = 10*eye(4);
+
+  x = [1 0 0 0]';  
+  P = 1*eye(4);
+
+  firstRun = 1;  
+end
+
+
+xp = A*x;
+Pp = A*P*A' + Q;
+
+K = Pp*H'*inv(H*Pp*H' + R);
+
+x = xp + K*(z - H*xp);     % x = [ q1 q2 q3 q4 ]
+P = Pp - K*H*Pp;
+
+% 쿼터니언 추정값을 오일러각으로 변환!
+phi   =  atan2( 2*(x(3)*x(4) + x(1)*x(2)), 1 - 2*(x(2)^2 + x(3)^2) );
+theta = -asin(  2*(x(2)*x(4) - x(1)*x(3)) );
+psi   =  atan2( 2*(x(2)*x(3) + x(1)*x(4)), 1 - 2*(x(3)^2 + x(4)^2) );
 ```
 
 
@@ -178,11 +211,74 @@ $$
 **TestEulerKalman.m**
 
 ```matlab
+clear all
+
+Nsamples = 41500;
+EulerSaved = zeros(Nsamples, 3);
+
+dt = 0.01;
+
+for k=1:Nsamples
+  % 각속도 읽어옴
+  [p q r] = GetGyro();  
+  % 측정된 각속도를 이용하여 시스템 행렬 A 구성
+  A = eye(4) + dt*1/2*[ 0  -p  -q  -r;
+                        p   0   r  -q;
+                        q  -r   0   p;
+                        r   q  -p   0
+                      ];
+
+  % 가속도 읽어옴                
+  [ax ay] = GetAccel();
+  % 측정된 가속도를 이용하여 오일러각 계산
+  [phi theta] = EulerAccel(ax, ay);
+  % 오일러각을 이용하여 쿼터니언각 계산
+  z = EulerToQuaternion(phi, theta, 0);
+
+  [phi theta psi] = EulerKalman(A, z);
+
+  EulerSaved(k, :) = [ phi theta psi ];
+end
+
+% radian -> degree
+PhiSaved   = EulerSaved(:, 1) * 180/pi;
+ThetaSaved = EulerSaved(:, 2) * 180/pi;
+PsiSaved   = EulerSaved(:, 3) * 180/pi;
+
+t = 0:dt:Nsamples*dt-dt;
+
+% 칼만 필터를 이용하여 구한 값 확인
+figure
+plot(t, PhiSaved)
+xlabel('Time[sec]')
+ylabel('Roll angle[deg]')
+
+figure
+plot(t, ThetaSaved)
+xlabel('Time[sec]')
+ylabel('Pitch angle[deg]')
+
+figure
+plot(t, PsiSaved)
+xlabel('Time[sec]')
+ylabel('Yaw angle[deg]')
 ```
 
 **EulerToQuaternion.m**
 
 ```matlab
+function z = EulerToQuaternion(phi, theta, psi)
+% 오일러각을 쿼터니언각으로 변환하는 함수
+%
+sinPhi   = sin(phi/2);    cosPhi   = cos(phi/2);
+sinTheta = sin(theta/2);  cosTheta = cos(theta/2);
+sinPsi   = sin(psi/2);    cosPsi   = cos(psi/2);
+
+z = [ cosPhi*cosTheta*cosPsi + sinPhi*sinTheta*sinPsi;
+      sinPhi*cosTheta*cosPsi - cosPhi*sinTheta*sinPsi;
+      cosPhi*sinTheta*cosPsi + sinPhi*cosTheta*sinPsi;
+      cosPhi*cosTheta*sinPsi - sinPhi*sinTheta*cosPsi;
+    ];
 ```
 
 
@@ -191,7 +287,11 @@ $$
 없다. 애초의 설계 목표대로 자이로의 누적 오차가 없어졌고, 가속도계의 부정확성도
 제거되었다. 두 센서의 장점이 잘 융합된 덕분이다.  
 
-그림
+![ARS_8](https://raw.githubusercontent.com/RoyalAzalea/RoyalAzalea.github.io/master/static/img/_posts/kalman-filter-study/ARS_8.PNG)  
+
+![ARS_9](https://raw.githubusercontent.com/RoyalAzalea/RoyalAzalea.github.io/master/static/img/_posts/kalman-filter-study/ARS_9.PNG)  
+
+![ARS_10](https://raw.githubusercontent.com/RoyalAzalea/RoyalAzalea.github.io/master/static/img/_posts/kalman-filter-study/ARS_10.PNG)  
 
 이상에서 자이로와 가속도계의 상호 보완적인 특징을 이용하여 두 센서를 융합하면 훨씬 더
 좋은 성과를 거둘 수 있음을 확인했다. 특히 칼만 필터에 적합한 시스템 모델만 구하면 센서

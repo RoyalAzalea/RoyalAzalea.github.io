@@ -30,7 +30,7 @@ categories: [kalman_filter, matlab]
 어떤 물체의 자세는 아래 그림처럼 세 개의 각도만 알면 정확히 표현할 수 있다. 참고로 이
 세 개의 각을 오일러 각(`Euler angle`)이라고 함!
 
-그림(만들어서)
+![ARS_RYP](https://raw.githubusercontent.com/RoyalAzalea/RoyalAzalea.github.io/master/static/img/_posts/kalman-filter-study/ARS_RYP.PNG)  
 
 따라서 헬기의 자세를 알아낸다는 말은 이 세 각도를 찾는다는 말과 같은 뜻이다. 이 예제에서는
 수평 자세에만 관심이 있으므로 세 개의 각도 중에서 롤각($\phi$)과 피치각($\theta$)만
@@ -40,12 +40,12 @@ categories: [kalman_filter, matlab]
 예제 시험 절차는 다음과 같다. 주파수 $0.2 Hz$, 최대 진폭 $\mp{30^\circ}$인 정현파로
 항법센서를 흔드는 시험을 실시했다.  
 
-그림(만들어서)
+![ARS_sub1](https://raw.githubusercontent.com/RoyalAzalea/RoyalAzalea.github.io/master/static/img/_posts/kalman-filter-study/ARS_sub1.PNG)  
 
 시험에서 저장한 데이터는 세 축 방향 가속도와 각속도이고, 저장 간격은 $0.01$ 초였다. 다음
 그림은 항법센서에 가한 롤-피치-요축 정현파 진동의 궤적이다.  
 
-그림(1)  
+![ARS_1](https://raw.githubusercontent.com/RoyalAzalea/RoyalAzalea.github.io/master/static/img/_posts/kalman-filter-study/ARS_1.PNG)  
 
 이 장에서 개발하는 알고리즘의 검증과 분석에는 위의 시험에서 얻은 가속도와 각속도를 공통으로
 사용한다. 알고리즘의 성능이 좋은지 나쁜지는 추정 결과가 앞의 진동 궤적과 얼마나 비슷한
@@ -81,6 +81,35 @@ $$
 **EulerGyro.m**
 
 ```matlab
+function [phi theta psi] = EulerGyro(p, q, r, dt)
+% 자이로에서 측정한 각속도를 오일러각의 변화율로 바꾸고 적분하는 함수
+% 자이로에서 측정한 각속도(p,q,r)와 샘플링 시간(dt)를 인자로 받음
+
+persistent prevPhi prevTheta prevPsi
+
+% 초기 오일러각은 모두 0으로 가정
+if isempty(prevPhi)
+    prevPhi = 0;
+    prevTheta = 0;
+    prevPsi = 0;
+end
+
+% 사용할 값으로 변환
+sinPhi = sin(prevPhi);
+cosPhi = cos(prevPhi);
+cosTheta = cos(prevTheta);
+tanTheta = tan(prevTheta);
+
+% 적분(문제의 특성에 따라 적절히 변경)
+phi   = prevPhi     + dt*(p + q*sinPhi*tanTheta + r*cosPhi*tanTheta);
+theta = prevTheta   + dt*(    q*cosPhi          - r*sinPhi);
+psi   = prevPsi     + dt*(    q*sinPhi/cosTheta + r*cosPhi/cosTheta);
+
+prevPhi = phi;
+prevTheta = theta;
+prevPsi = psi;
+
+end
 ```
 
 
@@ -90,6 +119,61 @@ $$
 **TestEulerGyro.m**
 
 ```matlab
+clear all
+
+Nsamples = 41500;
+EulerSaved = zeros(Nsamples, 3);
+GetGyroSaved = zeros(Nsamples, 3);
+
+dt = 0.01;
+
+for k = 1:Nsamples
+  [p q r] = GetGyro();   
+  [phi theta psi] = EulerGyro(p, q, r, dt);
+
+  GetGyroSaved(k, :) = [ p q r ];
+  EulerSaved(k, :) = [ phi theta psi ];
+end
+
+% radian -> degree
+PhiSaved   = EulerSaved(:, 1) * 180/pi;
+ThetaSaved = EulerSaved(:, 2) * 180/pi;
+PsiSaved   = EulerSaved(:, 3) * 180/pi;
+
+t = 0:dt:Nsamples*dt-dt;
+
+% 자이로센서가 측정한 각속도 확인 - 교재 그림과 맞춰주려고 40을 곱함
+figure
+subplot(3,1,1);
+plot(t, GetGyroSaved(:,1)*40);
+xlabel('Time[sec]')
+ylabel('Roll angle[deg]')
+subplot(3,1,2);
+plot(t, GetGyroSaved(:,2)*40);
+xlabel('Time[sec]')
+ylabel('Pitch angle[deg]')
+subplot(3,1,3);
+plot(t, GetGyroSaved(:,3)*40);
+xlabel('Time[sec]')
+ylabel('Yaw angle[deg]')
+
+
+% 오일러 각으로 변환한(각속도를 변화율로 변화 + 적분) 값 확인
+figure
+plot(t, PhiSaved)
+xlabel('Time[sec]')
+ylabel('Roll angle[deg]')
+
+figure
+plot(t, ThetaSaved)
+xlabel('Time[sec]')
+ylabel('Pitch angle[deg]')
+
+% Yaw각은 수평자세에는 전혀 영향을 주지 않으므로 고려할 필요가 없다.(지금 예제)
+figure
+plot(t, PsiSaved)
+xlabel('Time[sec]')
+ylabel('Yaw angle[deg]')
 ```
 
 
@@ -99,6 +183,25 @@ $$
 **GetGyro.m**
 
 ```matlab
+function [p q r] = GetGyro()
+% 자이로에서 측정값을 읽어오는 함수
+% 미리 저장된 ArsGyro.mat에서 값 읽어옴
+persistent wx wy wz
+persistent k firstRun
+
+
+if isempty(firstRun)
+  load ArsGyro
+  k = 1;
+
+  firstRun = 1;
+end
+
+p = wx(k);
+q = wy(k);
+r = wz(k);
+
+k = k + 1;
 ```
 
 
@@ -106,7 +209,7 @@ $$
 나타나 있다. 실험에 쓰인 항법 센서는 잡음 제거 필터가 구현된 제품이라, 저가의 자이로보다
 출력이 더 깨끗한 편이다.  
 
-그림(1)  
+![ARS_1](https://raw.githubusercontent.com/RoyalAzalea/RoyalAzalea.github.io/master/static/img/_posts/kalman-filter-study/ARS_1.PNG)  
 
 그럼 `TestEulerGyro` 프로그램의 수행 결과를 살펴보겠다. 먼저 롤각($\phi$)을 보겠다.
 $50~130$ 초 사이에 $\mp{30\circ}$ 의 진폭으로 진동하는 움직임이 보인다.
@@ -114,7 +217,7 @@ $180~250$ 초 사이에도 비슷한 움직임이 다시 나타난다. 외부에
 결과이다. 그런데 시간이 지나면서 오차가 조금씩 생기는게 보인다. **기동의 경향은 어느 정도
 맞지만, 자세각은 많이 편향되어 있다. 오차가 누적된 탓이다.**  
 
-그림(2)
+![ARS_2](https://raw.githubusercontent.com/RoyalAzalea/RoyalAzalea.github.io/master/static/img/_posts/kalman-filter-study/ARS_2.PNG)  
 
 이제 피치각($\theta$)의 변화를 살펴보겠다. $0~180$ 초 사이에는 피치축 기동이 없는데도
 측정값이 점점 커져간다. **롤축 기동의 영향을 받아 오차가 계속 쌓여가기 때문이다. 이렇게
@@ -126,9 +229,9 @@ $180~250$ 초 사이에도 비슷한 움직임이 다시 나타난다. 외부에
 동태를 측정하는데 사용하는게 더 낫다.** 이러한 특징을 시간의 관점에서 보면, 자이로는
 단기간의 측정은 비교적 정확하지만 장시간의 변화에는 부정확한 센서라고 볼 수 있다.  
 
-그림(3)  
+![ARS_3](https://raw.githubusercontent.com/RoyalAzalea/RoyalAzalea.github.io/master/static/img/_posts/kalman-filter-study/ARS_3.PNG)  
 
-그림(4)  
+![ARS_4](https://raw.githubusercontent.com/RoyalAzalea/RoyalAzalea.github.io/master/static/img/_posts/kalman-filter-study/ARS_4.PNG)  
 
 ## 13.2 가속도를 이용한 자세 결정
 
@@ -197,6 +300,17 @@ $\ref{13.4}$로 수평자세를 구할 수 있다. 이 경우에 식 $\ref{13.4}
 **EulerAccel.m**
 
 ```matlab
+function [ phi theta ] = EulerAccel(ax, ay)
+% 가속도를 입력 받아 롤각과 피치각(오일러각)을 반환하는 함수
+%
+
+% 중력 가속도
+g = 9.8;
+
+theta = asin(  ax/ g );
+phi   = asin( -ay/ (g*cos(theta)) );
+
+end
 ```
 
 
@@ -207,13 +321,59 @@ $\ref{13.4}$로 수평자세를 구할 수 있다. 이 경우에 식 $\ref{13.4}
 피치축 기동일 때도 마찬가지이다. 따라서 아래와 같은 결과는 물리 법칙에 위배되지 않는,
 타당한 결과이다.  
 
-그림(5)
+![ARS_5](https://raw.githubusercontent.com/RoyalAzalea/RoyalAzalea.github.io/master/static/img/_posts/kalman-filter-study/ARS_5.PNG)  
 
 `TestEulerAccel.m`은 `EulerAccel` 함수를 테스트하기 위한 프로그램이다.  
 
 **TestEulerAccel.m**
 
 ```matlab
+clear all
+
+Nsamples = 41500;
+EulerSaved = zeros(Nsamples, 2);
+GetAccelSaved = zeros(Nsamples, 3);
+
+for k = 1:Nsamples
+  [ax ay az] = GetAccel();   
+  [phi theta] = EulerAccel(ax, ay);
+
+  GetAccelSaved(k, :) = [ax ay az];
+  EulerSaved(k, :) = [phi theta];
+end
+
+% radian -> degree
+PhiSaved   = EulerSaved(:, 1) * 180/pi;
+ThetaSaved = EulerSaved(:, 2) * 180/pi;
+
+dt = 0.01;
+t  = 0:dt:Nsamples*dt-dt;
+
+% 가속도센서가 측정한 가속도 확인
+figure
+subplot(3,1,1);
+plot(t, GetAccelSaved(:, 1));
+xlabel('Time[sec]')
+ylabel('f_x[m/s^2]')
+subplot(3,1,2);
+plot(t, GetAccelSaved(:, 2));
+xlabel('Time[sec]')
+ylabel('f_y[m/s^2]')
+subplot(3,1,3);
+plot(t, GetAccelSaved(:, 3));
+xlabel('Time[sec]')
+ylabel('f_z[m/s^2]')
+
+% 변환한 롤각과 피치각 확인
+figure
+plot(t, PhiSaved)
+xlabel('Time[sec]')
+ylabel('Roll angle[deg]')
+
+figure
+plot(t, ThetaSaved)
+xlabel('Time[sec]')
+ylabel('Pitch angle[deg]')
 ```
 
 
@@ -223,6 +383,25 @@ $\ref{13.4}$로 수평자세를 구할 수 있다. 이 경우에 식 $\ref{13.4}
 **GetAccel.m**
 
 ```matlab
+function [ax ay az] = GetAccel()
+% 가속도를 측정해서 읽어오는 함수
+% 미리 저장된 ArsAccel.mat에서 값 읽어옴
+persistent fx fy fz
+persistent k firstRun
+
+
+if isempty(firstRun)
+  load ArsAccel
+  k = 1;
+
+  firstRun = 1;
+end
+
+ax = fx(k);
+ay = fy(k);
+az = fz(k);
+
+k = k + 1;
 ```
 
 
@@ -231,7 +410,7 @@ $\ref{13.4}$로 수평자세를 구할 수 있다. 이 경우에 식 $\ref{13.4}
 누적되지 않는다. 그런데 최대값은 $\mp9^\circ$ 정도로 실제 값인 $\mp30^\circ$에 미치지
 못한다. 오차가 상당히 커서 가속도계 단독으로 사용하기는 힘든 상태이다.  
 
-그림(6)
+![ARS_6](https://raw.githubusercontent.com/RoyalAzalea/RoyalAzalea.github.io/master/static/img/_posts/kalman-filter-study/ARS_6.PNG)  
 
 이제 피치각의 그래프를 보겠다. 피치각의 그래프에서도 같은 양상이 보인다. 시간이 지나도
 누적 오차가 없고 피치각이 편향되지도 않는다. 하지만 롤각과 마찬가지로 오차가 너무 크다.  
@@ -241,6 +420,4 @@ $\ref{13.4}$로 수평자세를 구할 수 있다. 이 경우에 식 $\ref{13.4}
 왜냐면 식 $\ref{13.4}$의 자세 계산식이 가속도나 각속도가 충분히 작은 상황에서만 쓸 수
 있는 근사식이기 때문이다.
 
-그림(7)
-
-그림(8)
+![ARS_7](https://raw.githubusercontent.com/RoyalAzalea/RoyalAzalea.github.io/master/static/img/_posts/kalman-filter-study/ARS_7.PNG)  
