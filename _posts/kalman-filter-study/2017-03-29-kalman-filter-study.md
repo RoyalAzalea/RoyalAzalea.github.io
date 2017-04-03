@@ -61,7 +61,7 @@ $$
 소개한 적이 있다.  
 
 $$
-\begin{bmatrix} \dot{\phi} \\\\ \dot{\theta} \\\\ \dot{\varphi} \end{bmatrix} = \begin{bmatrix} 1 & \sin{\phi}\tan{\theta} & \cos{\phi}\tan{\theta} \\\\ 0 & cos{\phi} & -\sin{\phi} \\\\ 0 & \sin{\phi}/\cos{\theta} & \cos{\phi}/\cos{\theta} \end{bmatrix} \label{13.1}\tag{13.1}
+\begin{bmatrix} \dot{\phi} \\\\ \dot{\theta} \\\\ \dot{\varphi} \end{bmatrix} = \begin{bmatrix} 1 & \sin{\phi}\tan{\theta} & \cos{\phi}\tan{\theta} \\\\ 0 & cos{\phi} & -\sin{\phi} \\\\ 0 & \sin{\phi}/\cos{\theta} & \cos{\phi}/\cos{\theta} \end{bmatrix} \begin{bmatrix} p \\\\ q \\\\ r \end{bmatrix} \label{13.1}\tag{13.1}
 $$  
 
 **그런데 이 식을 시스템 모델로 삼기에는 심각한 문제가 있다. 시스템 모델이 되려면 다음과
