@@ -5,16 +5,16 @@ date: 2017-08-01
 categories: [tensorflow, machine_learning]
 ---
 
-### Machine Learning Basics  
-
-# TEST
-
+# 1. Machine Learning Basics  
 
 일반적으로 개발자들이 만든 프로그램은 개발자가 만든 대로 동작하는 explicit 프로그램이다.
 좋은 프로그램들이 많지만, rule이 많은 상황에서는 이러한 explicit 프로그램을 만들기
 어렵다. 1959년에 우리가 일일히 프로그래밍 하지 말고, 프로그램 자체가 어떤 현상이나 자료를
 학습을 해서 스스로 무언갈 배워보자는 재밌는 생각이 나왔다. 그리고 이 재밌는 생각이 바로
-Machine Learning의 시작이다. **(Machine Learning:"Field of study that gives computers
+Machine Learning의 시작이다.   
+
+
+**(Machine Learning:"Field of study that gives computers
 the ability to learn without being explicitly programmed" Arthur Samuel (1959))**  
 
 
@@ -43,9 +43,9 @@ Machine Learning을 하기 위해 프로그램이 학습 할 data가 필요하�
 
 
 
-### Tensorflow Basics  
+# 2. Tensorflow Basics  
 
-## 1. Introduction  
+## 2.1 Introduction  
 
 Tensorflow는 Machine Learning을 하기위한 open-source 라이브러리로 현재 많은 ML
 라이브러리 중 가장 많은 사람들이 사용하고 있다. Tensorflow의 특징은 다음과 같다.  
@@ -58,7 +58,7 @@ Tensorflow는 Machine Learning을 하기위한 open-source 라이브러리로 �
 
 
 
-## 2. Terminology
+## 2.2 Terminology
 
 Ternsorflow 공부에 앞서, Tensorflow에서 사용되는 기본 용어들을 살펴보겠다.  
 
@@ -92,7 +92,7 @@ variables는 graph 실행시, parameter를 저장하고 갱신하는데 사용�
 tensor를 저장하는 버퍼 역할을 한다.  
 
 
-## 3. data flow graphs
+## 2.3 data flow graphs
 
 Data flow graphs는 node와 edge를 사용한 방향 그래프(`Directed Graph`)이다. node는
 수학적 계산, 데이터 입/출력, 그리고 데이터의 읽기/저장 등의 작업을 수행한다. edge는
@@ -105,7 +105,7 @@ arrays(tensor)를 뜻한다고 생각할 수 있다. 그리고 tensor들이 edge
 설정한 작업들이 진행된다.
 
 
-## 4. Tensorflow Mechanism
+## 2.4 Tensorflow Mechanism
 
 Tensorflow Mechanism을 이해하기 위해 아래 그림을 보자.   
 
@@ -115,7 +115,7 @@ Tensorflow Mechanism을 이해하기 위해 아래 그림을 보자.
 session을 통해 graph를 실행하고 graph를 통해 variables return/update 한다.  
 
 
-## 5. Examples
+## 2.5 Examples
 
 간단하게 Tensorflow를 통해 Hello World를 출력하는 예제를 살펴보겠다. `hello`라는
 constant node를 만들고, `sess`라는 session을 만들어 `run` 하여 실행한다.
