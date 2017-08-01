@@ -94,13 +94,15 @@ tensor를 저장하는 버퍼 역할을 한다.
 
 ## 2.3 data flow graphs
 
-Data flow graphs는 node와 edge를 사용한 방향 그래프(`Directed Graph`)이다. node는
+`data flow graphs`는 node와 edge를 사용한 방향 그래프(`Directed Graph`)이다. node는
 수학적 계산, 데이터 입/출력, 그리고 데이터의 읽기/저장 등의 작업을 수행한다. edge는
 node들 간 데이터의 입출력 관계를 나타낸다.  
 
 ![data_flow_graph](https://raw.githubusercontent.com/RoyalAzalea/RoyalAzalea.github.io/master/static/img/_posts/tensorflow-study/data_flow_graph.gif)    
 
-간략히 data flow graphs에서 node들은 하나의 operation을 뜻하고, edge는 data
+
+
+간략히 `data flow graphs`에서 node들은 하나의 operation을 뜻하고, edge는 data
 arrays(tensor)를 뜻한다고 생각할 수 있다. 그리고 tensor들이 edge를 통해 돌아다니면서
 설정한 작업들이 진행된다.
 
@@ -110,6 +112,8 @@ arrays(tensor)를 뜻한다고 생각할 수 있다. 그리고 tensor들이 edge
 Tensorflow Mechanism을 이해하기 위해 아래 그림을 보자.   
 
 ![Tensorflow_Mechanism](https://raw.githubusercontent.com/RoyalAzalea/RoyalAzalea.github.io/master/static/img/_posts/tensorflow-study/Tensorflow_Mechanism.PNG)   
+
+
 
 그림의 순서와 같이 처음 operation을 이용하여 graph를 build 한다. 그 다음
 session을 통해 graph를 실행하고 graph를 통해 variables return/update 한다.  
