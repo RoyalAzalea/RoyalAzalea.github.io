@@ -5,38 +5,44 @@ date: 2017-08-01
 categories: [tensorflow, machine_learning]
 ---
 
-## Machine Learning Basics  
+# Machine Learning Basics  
 
 
 일반적으로 개발자들이 만든 프로그램은 개발자가 만든 대로 동작하는 explicit 프로그램이다.
 좋은 프로그램들이 많지만, rule이 많은 상황에서는 이러한 explicit 프로그램을 만들기
 어렵다. 1959년에 우리가 일일히 프로그래밍 하지 말고, 프로그램 자체가 어떤 현상이나 자료를
 학습을 해서 스스로 무언갈 배워보자는 재밌는 생각이 나왔다. 그리고 이 재밌는 생각이 바로
-Machine Learning의 시작이다. (Machine Learning:"Field of study that gives computers
-the ability to learn without being explicitly programmed" Arthur Samuel (1959))  
+Machine Learning의 시작이다. **(Machine Learning:"Field of study that gives computers
+the ability to learn without being explicitly programmed" Arthur Samuel (1959))**  
 
 
-Machine Learning을 하기 위해 프로그램은 학습을 해야한다. 학습의 방법에 따라 Supervised Learning과
-Unsupervised Learning으로 나뉜다. Supervised Learning의 경우 labeled data/information을
-가지고 학습한다. 우리가 일일히 data/information의 label을 나누고 학습을 하도록 한다.
-Unsupervised Learning의 경우 un-labeled data/information을 가지고 학습한다. 우리가
+Machine Learning을 하기 위해 프로그램은 학습을 해야한다. 학습의 방법에 따라 `Supervised Learning`과
+`Unsupervised Learning`으로 나뉜다. `Supervised Learning`의 경우 labeled data/information을
+가지고 학습한다. 우리가 일일히 data/information의 label을 나누고 학습을 하도록 한다.  
+
+
+
+`Unsupervised Learning`의 경우 un-labeled data/information을 가지고 학습한다. 우리가
 일일히 label을 주지 않고, 프로그램이 data/information을 보고 스스로 학습하여 유사한 것들을
 모으거나 필요한 작업을 한다.  
 
 
 Machine Learning을 하기 위해 프로그램이 학습 할 data가 필요하다. 보통 이 data를
-Traning Data Set이라고 하며, Machine Learning에서 Traning Data Set을 사용하여 학습을
+`Traning Data Set`이라고 하며, Machine Learning에서 `Traning Data Set`을 사용하여 학습을
 통해 어떤 모델을 만들게 된다. 그리고 이 모델을 통해 어떤 input에 대한 output을 얻을 수 있다.  
 
 
-일반적으로 Machine Learning에서 Supervised Learning이 많이 쓰인다. Supervised Learning에는
-크게 세 종류가 있다. 점수처럼 측정이 되는 Regression, pass/non-pass처럼 결정이 되는
-Binary Classification, 그리고 학점처럼 등급이 나오는 Multi-label Classfication이 있다.
+일반적으로 Machine Learning에서 `Supervised Learning`이 많이 쓰인다. `Supervised Learning`에는
+크게 세 종류가 있다. 점수처럼 측정이 되는 `Regression`, pass/non-pass처럼 결정이 되는
+`Binary Classification`, 그리고 학점처럼 등급이 나오는 `Multi-label Classfication`이 있다.
 
 
-## Tensorflow Basics  
 
-### Introduction  
+
+
+# Tensorflow Basics  
+
+## 1. Introduction  
 
 Tensorflow는 Machine Learning을 하기위한 open-source 라이브러리로 현재 많은 ML
 라이브러리 중 가장 많은 사람들이 사용하고 있다. Tensorflow의 특징은 다음과 같다.  
@@ -49,7 +55,7 @@ Tensorflow는 Machine Learning을 하기위한 open-source 라이브러리로 �
 
 
 
-### Terminology
+## 2. Terminology
 
 Ternsorflow 공부에 앞서, Tensorflow에서 사용되는 기본 용어들을 살펴보겠다.  
 
@@ -83,7 +89,7 @@ variables는 graph 실행시, parameter를 저장하고 갱신하는데 사용�
 tensor를 저장하는 버퍼 역할을 한다.  
 
 
-### data flow graphs
+## 3. data flow graphs
 
 Data flow graphs는 node와 edge를 사용한 방향 그래프(`Directed Graph`)이다. node는
 수학적 계산, 데이터 입/출력, 그리고 데이터의 읽기/저장 등의 작업을 수행한다. edge는
@@ -96,7 +102,7 @@ arrays(tensor)를 뜻한다고 생각할 수 있다. 그리고 tensor들이 edge
 설정한 작업들이 진행된다.
 
 
-### Tensorflow Mechanism
+## 4. Tensorflow Mechanism
 
 Tensorflow Mechanism을 이해하기 위해 아래 그림을 보자.   
 
@@ -106,7 +112,7 @@ Tensorflow Mechanism을 이해하기 위해 아래 그림을 보자.
 session을 통해 graph를 실행하고 graph를 통해 variables return/update 한다.  
 
 
-### Examples
+## 5. Examples
 
 간단하게 Tensorflow를 통해 Hello World를 출력하는 예제를 살펴보겠다. `hello`라는
 constant node를 만들고, `sess`라는 session을 만들어 `run` 하여 실행한다.
@@ -137,7 +143,7 @@ b'Hello, TensorFlow!'
 뿐이다.  
 
 
-다음 예제는 Tensorflow version을 확인하고, session을 사용/미사용 시
+다음 예제는 Tensorflow version을 확인하고, session 사용/미사용 시
 어떠한 출력을 해주는지 보는 예제이다.
 
 **code**
