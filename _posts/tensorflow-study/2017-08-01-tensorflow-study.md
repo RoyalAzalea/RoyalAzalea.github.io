@@ -5,7 +5,7 @@ date: 2017-08-01
 categories: [tensorflow, machine_learning]
 ---
 
-# Machine Learning Basics  
+### Machine Learning Basics  
 
 # TEST
 
@@ -43,7 +43,7 @@ Machine Learning을 하기 위해 프로그램이 학습 할 data가 필요하�
 
 
 
-# Tensorflow Basics  
+### Tensorflow Basics  
 
 ## 1. Introduction  
 
