@@ -7,6 +7,8 @@ categories: [tensorflow, machine_learning]
 
 # Machine Learning Basics  
 
+# TEST
+
 
 일반적으로 개발자들이 만든 프로그램은 개발자가 만든 대로 동작하는 explicit 프로그램이다.
 좋은 프로그램들이 많지만, rule이 많은 상황에서는 이러한 explicit 프로그램을 만들기
