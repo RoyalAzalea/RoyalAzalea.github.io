@@ -16,10 +16,11 @@ Machine Learning의 시작이다. **(Machine Learning:"Field of study that gives
 the ability to learn without being explicitly programmed" Arthur Samuel (1959))**  
 
 
-Machine Learning을 하기 위해 프로그램은 학습을 해야한다. 학습의 방법에 따라 `Supervised Learning`과
-`Unsupervised Learning`으로 나뉜다. `Supervised Learning`의 경우 labeled data/information을
-가지고 학습한다. 우리가 일일히 data/information의 label을 나누고 학습을 하도록 한다.  
+Machine Learning을 하기 위해 프로그램은 학습을 해야한다. 학습의 방법에 따라 `Supervised Learning`과 `Unsupervised Learning`으로 나뉜다.  
 
+
+`Supervised Learning`의 경우 labeled data/information을
+가지고 학습한다. 우리가 일일히 data/information의 label을 나누고 학습을 하도록 한다.  
 
 
 `Unsupervised Learning`의 경우 un-labeled data/information을 가지고 학습한다. 우리가
