@@ -7,6 +7,10 @@ categories: [python, ruby]
 
 설치환경 Window 10
 
+## 공부자료
+
+* 생활코딩_Python&Ruby 강의 : <https://opentutorials.org/course/1750>
+
 ### 1. 설치
 
 `Python` : Download button - Download for windows - Python 3.X.X down  

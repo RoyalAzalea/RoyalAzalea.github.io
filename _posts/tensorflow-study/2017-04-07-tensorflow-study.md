@@ -7,7 +7,12 @@ categories: [tensorflow, machine_learning]
 
 설치환경 Window 10
 
-`Tensorflow`를 공부하기 위한 환경 구성 (`Python`, `PyCharm`, `Anaconda`)
+`Tensorflow`를 공부하기 위한 환경 구성 (`Python`, `PyCharm`, `Anaconda`)  
+
+## 공부자료
+
+* 모두를 위한 머신러닝/딥러닝 강의 : <https://hunkim.github.io/ml/>
+* Tensorflow Docs 번역본 : <https://tensorflowkorea.gitbooks.io/tensorflow-kr/content/>
 
 ## 1. 설치
 
