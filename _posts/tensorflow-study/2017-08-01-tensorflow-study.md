@@ -11,11 +11,25 @@ categories: [tensorflow, machine_learning]
 좋은 프로그램들이 많지만, rule이 많은 상황에서는 이러한 explicit 프로그램을 만들기
 어렵다. 1959년에 우리가 일일히 프로그래밍 하지 말고, 프로그램 자체가 어떤 현상이나 자료를
 학습을 해서 스스로 무언갈 배워보자는 재밌는 생각이 나왔다. 그리고 이 재밌는 생각이 바로
-Machine Learning의 시작이다.  **(Machine Learning:"Field of study that gives computers
-the ability to learn without being explicitly programmed" Arthur Samuel (1959))**  
+Machine Learning의 시작이다.
 
 
-Machine Learning을 하기 위해 프로그램은 학습을 해야한다. 학습의 방법에 따라 `Supervised Learning`과 `Unsupervised Learning`으로 나뉜다.  
+**참고로 Machine Learning이란 단어는 처음 Arthur Samuel 교수가 1959년에 발표한
+논문 "Some Studies in Machine Learning Using the Game of Checkers" 에서
+"Machine Learning: Field of study that gives computers the ability to learn
+ without being explicitly programmed" 라고 정의했다.**  
+
+
+Machine Learning을 하기 위해 프로그램은 학습을 해야한다. 학습의 방법에 따라
+`Supervised Learning`과 `Unsupervised Learning`으로 나뉜다. 아래 Machine Learning
+에 대해 간단하게 분류를 해보았다. 아래 분류는 간단한 분류로 다음에 여러 분류에 대해
+언급하겠다.
+
+* Supervised Learning
+  * Regression
+  * Binary Classfication
+  * Multi-label Classfication
+* Unsupervised Learning  
 
 
 `Supervised Learning`의 경우 labeled data/information을
@@ -27,11 +41,12 @@ Machine Learning을 하기 위해 프로그램은 학습을 해야한다. 학습
 모으거나 필요한 작업을 한다.  
 
 
-Machine Learning을 하기 위해 프로그램이 학습 할 data가 필요하다. 보통 이 data를
-`Traning Data Set`이라고 하며, Machine Learning에서 `Traning Data Set`을 사용하여 학습을
-통해 어떤 모델을 만들게 된다. 그리고 이 모델을 통해 어떤 input에 대한 output을 얻을 수 있다.  
-
-
 일반적으로 Machine Learning에서 `Supervised Learning`이 많이 쓰인다. `Supervised Learning`에는
 크게 세 종류가 있다. 점수처럼 측정이 되는 `Regression`, pass/non-pass처럼 결정이 되는
 `Binary Classification`, 그리고 학점처럼 등급이 나오는 `Multi-label Classfication`이 있다.
+
+
+
+참고로 Machine Learning을 하기 위해 프로그램이 학습 할 data가 필요하다. 보통 이 data를
+`Traning Data Set`이라고 하며, Machine Learning에서 `Traning Data Set`을 사용하여 학습을
+통해 어떤 모델을 만들게 된다. 그리고 이 모델을 통해 어떤 input에 대한 output을 얻을 수 있다.  
