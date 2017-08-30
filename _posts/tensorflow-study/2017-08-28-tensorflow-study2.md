@@ -8,11 +8,8 @@ categories: [tensorflow, machine_learning]
 `Tensorflow`를 사용하여 `Linear Regression`을 구현해보자. 구현 과정은 다음과 같다.
 
 1. Graph build
-  : 가설과 `cost`에 대한 함수를 그래프로 만듬
 2. Session run
-  : 학습 Data를 input으로 줌
-3. Update
-  : 내부적으로 `W`와 `b`에 대한 값이 업데이트 됨
+3. Update  
 
 
 ## 1. Graph build
@@ -115,6 +112,18 @@ total time :  361  ms
 위 결과를 보면, `W`가 1로, `b`는 0으로 다가가고 있음을 볼 수 있다. 아래는
 `Placeholder`를 사용하여 `Linear Regression`을 구현한 코드이다.
 
+- 세션을 실행할 때 `list`를 사용하여 한꺼번에 실행시켜줄 수 있음
+(ex. `[cost, W, b, train]`)
+
+-  `cost_val`은 `cost`, `W_val`은 `W`, `b_val`은 `b`의 `return`을 받음, 그리고
+`_`는 `train`의 `return`을 받으나 굳이 필요하지 않아서 `_`로 씀
+
+- `Placeholder`를 이용하는 큰 이유중 하나는 만든 모델에 직접 값들을 줄 수 있기 때문이다.
+
+- `Placeholder`를 만들 때, `shape = [None]`을 쓰면 1차원 값을 몇개든 받을 수 있다!
+
+- 학습 후 `hypothesis`에 직접 `X` 값을 주면, 학습모델을 통한 예측값 `Y`를 얻을 수 있음
+
 
 **lab_02_02.py**
 
@@ -197,16 +206,3 @@ total time :  783  ms
 X : [1.5, 3.5]
 Y : [ 2.5986042   4.59992695]
 ```
-
-
-- 세션을 실행할 때 `list`를 사용하여 한꺼번에 실행시켜줄 수 있음
-(ex. `[cost, W, b, train]`)
-
--  `cost_val`은 `cost`, `W_val`은 `W`, `b_val`은 `b`의 `return`을 받음, 그리고
-`_`는 `train`의 `return`을 받으나 굳이 필요하지 않아서 `_`로 씀
-
-- `Placeholder`를 이용하는 큰 이유중 하나는 만든 모델에 직접 값들을 줄 수 있기 때문이다.
-
-- `Placeholder`를 만들 때, `shape = [None]`을 쓰면 1차원 값을 몇개든 받을 수 있다!
-
-- 학습 후 `hypothesis`에 직접 `X` 값을 주면, 학습모델을 통한 예측값 `Y`를 얻을 수 있음
