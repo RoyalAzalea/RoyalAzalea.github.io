@@ -25,33 +25,22 @@ Tensorflow는 Machine Learning을 하기위한 open-source 라이브러리로 �
 Ternsorflow 공부에 앞서, Tensorflow에서 사용되는 기본 용어들을 살펴보겠다.  
 
 
-**Operation(op)**
+- Operation(op)
+  : graph 상의 node는 operation(op)라고 불린다. operation은 하나 이상의 tensor를
+  받을 수 있다. 그리고 operation은 계산을 수행하고, 결과를 하나 이상의 tensor로
+  반환할 수 있다.
 
+- Tensor
+  : 내부적으로 모든 데이터는 tensor로 표현된다. tensor는 일종의 다차원 배열로,
+  graph 내의 operation 간에는 tensor만이 전달된다.  
 
-graph 상의 node는 operation(op)라고 불린다. operation은 하나 이상의 tensor를
-받을 수 있다. 그리고 operation은 계산을 수행하고, 결과를 하나 이상의 tensor로
-반환할 수 있다.
+- Session
+  : graph를 실행하기 위해서는 session 객체가 필요하다. session은 operation의 실행
+  환경을 캡슐화 한것이다.  
 
-
-**Tensor**  
-
-
-내부적으로 모든 데이터는 tensor로 표현된다. tensor는 일종의 다차원 배열로,
-graph 내의 operation 간에는 tensor만이 전달된다.  
-
-
-**Session**  
-
-
-graph를 실행하기 위해서는 session 객체가 필요하다. session은 operation의 실행
-환경을 캡슐화 한것이다.  
-
-
-**Variables**  
-
-
-variables는 graph 실행시, parameter를 저장하고 갱신하는데 사용된다. 메모리 상에서
-tensor를 저장하는 버퍼 역할을 한다.  
+- Variables
+  : variables는 graph 실행시, parameter를 저장하고 갱신하는데 사용된다. 메모리
+  상에서 tensor를 저장하는 버퍼 역할을 한다.  
 
 
 ## 3. data flow graphs
