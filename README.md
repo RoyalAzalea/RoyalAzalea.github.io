@@ -1,5 +1,5 @@
 ## RoyalAzalea's Personal Blog
 
-"Jekyll + Github" 으로 만든 개인 블로그
+Personal blog create with "Jekyll + Github"
 
-참고 : https://github.com/agusmakmun
+Fork from > https://github.com/agusmakmun
