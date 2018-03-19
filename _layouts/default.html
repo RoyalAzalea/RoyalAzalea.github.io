@@ -3,6 +3,23 @@ layout: compress
 ---
 <!DOCTYPE html>
 <html>
+  <!-- This part must need for LaTex in Kramdown  -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [[ '$','$']],
+      displayMath:  [['$$','$$']],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+    });
+  </script>
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -114,7 +131,7 @@ layout: compress
     <div class="container">
       <div class="col-sm-3">
         <div class="fixed-condition">
-          <a href="/"><img class="profile-avatar" src="{{ site.avatar_url }}" height="75px" width="75px" /></a>
+          <a href="/"><img class="profile-avatar" src="{{ site.avatar_url }}" height="100px" width="100px" /></a>
           <h1 class="author-name">{{ site.author }}</h1>
           {% if site.about %}
             <div class="profile-about">
@@ -150,10 +167,10 @@ layout: compress
           {% if site.github %}
             - <a href="{{ site.github }}">{{ site.github }}</a> - Powered by Jekyll.
           {% endif %}
-          <div class="btn-github" style="float:right;">
+          <!-- <div class="btn-github" style="float:right;">
             <iframe src="https://ghbtns.com/github-btn.html?user=agusmakmun&repo=agusmakmun.github.io&type=star&count=true" frameborder="0" scrolling="0" width="85" height="20px"></iframe>
             <iframe src="https://ghbtns.com/github-btn.html?user=agusmakmun&repo=agusmakmun.github.io&type=fork&count=true" frameborder="0" scrolling="0" width="85" height="20px"></iframe>
-          </div>
+          </div> -->
         </footer>
       </div>
       <!-- end /.col-sm-8 -->
